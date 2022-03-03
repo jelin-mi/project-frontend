@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-import Navbar from './components/Navbar';
+/* import Navbar from './components/Navbar'; */
 import { AuthProviderWrapper } from './context/auth.context';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
@@ -11,7 +11,7 @@ import SignupPage from './pages/SignupPage';
 function App() {
   return (
     <AuthProviderWrapper>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
