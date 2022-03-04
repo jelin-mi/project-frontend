@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
 
 function Home() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, /* user, */ logOutUser } = useContext(AuthContext);
 
   return (
     <div>
@@ -21,16 +21,21 @@ function Home() {
             {' '}
             <button>Login</button>{' '}
           </Link>
-          <p>Do you want to look around a bit before signing up? Check the movies Buddies uploaded.</p>   {/* link to the list of all the movies */}
+          <p>
+            Do you want to look around a bit before signing up? Check the <Link to={'/movies'}>movies</Link>{' '}
+            Buddies uploaded.
+          </p>{' '}
         </>
       )}
       {isLoggedIn && (
         <>
-          <p>Hello {user && user.name}, check your Watchlist.</p>     {/* link to Watchlist or list of all movies */}
+          <p>
+            Hello{/*  {user && user.name} */}, check your <Link to={'/watchlist'}>Watchlist</Link>.
+          </p>{' '}
         </>
       )}
-    <button onClick={logOutUser}>Logout</button>
-   </div>
+      <button onClick={logOutUser}>Logout</button>
+    </div>
   );
 }
 

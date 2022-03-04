@@ -31,7 +31,12 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h1>Welcome to Buddy Films</h1>
+      <p>
+        Hey movie lover,
+        <br />
+        please log in into your account.
+      </p>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -43,9 +48,11 @@ function LoginPage() {
         <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Dont have an account yet?</p>
-      <Link to={'/signup'}> Sign Up</Link>
+      <p>
+        Don’t have an account yet?
+        <br />
+        Sign up <Link to={'/signup'}>here</Link>.
+      </p>
     </div>
   );
 }
