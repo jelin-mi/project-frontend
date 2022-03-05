@@ -36,6 +36,29 @@ class ApiService {
     // same as
     // return axios.post("http://localhost:5005/auth/verify");
   };
+
+  // Watchlist
+  getWatchlist = () => {
+    return this.api.get('/api/watchlist');
+  };
+
+  createWatchlist = body => {
+    return this.api.post('/api/watchlist', body);
+  };
+
+  // Movies
+  getAllMovies = () => {
+    return this.api.get('/api/movies');
+  };
+
+  getOneMovie = id => {
+    return this.api.get(`/api/movies/${id}`);
+  };
+
+  createMovie = body => {
+    return this.api.post('/api/movies', body);
+  };
+  
 }
 
 // Create one instance (object) of the service

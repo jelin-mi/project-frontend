@@ -6,8 +6,11 @@ import { AuthProviderWrapper } from './context/auth.context';
 import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
+import MovieDetail from './pages/MovieDetail';
+import MoviesList from './pages/MoviesList';
 import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
+import Watchlist from './pages/Watchlist';
 
 function App() {
   return (
@@ -39,6 +42,10 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/movies" element={<MoviesList />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/movies/:id" element={<MovieDetail />} />
+
         <Route path="*" element={<Error404 />} />
       </Routes>
     </AuthProviderWrapper>
