@@ -7,6 +7,7 @@ import Error404 from './pages/Error404';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import MovieDetail from './pages/MovieDetail';
+import MovieCreate from './pages/MovieCreate';
 import MoviesList from './pages/MoviesList';
 import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
@@ -18,13 +19,13 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
+     {/*    <Route
           path="/protected"
           element={
             <IsPrivate>
               <Protected />
             </IsPrivate>
-          }
+          } */}
         />
         <Route
           path="/login"
@@ -43,6 +44,7 @@ function App() {
           }
         />
         <Route path="/movies" element={<MoviesList />} />
+        <Route path="/movies/add" element={<MovieCreate />} />
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
 
