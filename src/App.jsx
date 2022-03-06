@@ -12,6 +12,7 @@ import MoviesList from './pages/MoviesList';
 /* import Protected from './pages/Protected'; */
 import SignupPage from './pages/SignupPage';
 import Watchlist from './pages/Watchlist';
+import MovieEdit from './pages/MovieEdit';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-     {/*    <Route
+        {/*    <Route
           path="/protected"
           element={
             <IsPrivate>
@@ -45,9 +46,9 @@ function App() {
         />
         <Route path="/movies" element={<MoviesList />} />
         <Route path="/movies/add" element={<MovieCreate />} />
-        <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
-
+        <Route path="/movies/:id/edit" element={<MovieEdit />} />
+        <Route path="/watchlist" element={<Watchlist />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </AuthProviderWrapper>

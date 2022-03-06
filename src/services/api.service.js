@@ -58,7 +58,10 @@ class ApiService {
   createMovie = body => {
     return this.api.post('/api/movies', body);
   };
-  
+
+  editMovie = (id, body) => {
+    return this.api.put(`/api/movies/${id}`, body);
+  };
 }
 
 // Create one instance (object) of the service

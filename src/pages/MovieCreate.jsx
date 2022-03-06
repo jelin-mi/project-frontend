@@ -34,8 +34,11 @@ function MovieCreate() {
     };
 
     apiService
-    .createMovie(newMovie)
-    .then(response => {
+      .createMovie(newMovie)
+     /*  .createWatchlist({
+        movieId: movieId,
+      }) */
+      .then(response => {
         console.log(response);
         setTitle('');
         setYear();
@@ -44,7 +47,6 @@ function MovieCreate() {
         setBuddy('');
         setSynopsis('');
         setRating();
-        // createWatchlist()
         navigate('/movies');
       })
       .catch(err => {
@@ -118,6 +120,7 @@ function MovieCreate() {
             name="rating"
             value={rating}
             onChange={handleRating}
+            placeholder="1, 2 or 3"
           />
         </div>
 
