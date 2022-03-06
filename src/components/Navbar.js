@@ -1,19 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from './../context/auth.context';
+/* import { useContext } from 'react';
+import { AuthContext } from './../context/auth.context'; */
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
+  /* const { isLoggedIn, user, logOutUser } = useContext(AuthContext); */
 
   return (
     <nav>
-      <Link to="/">
-        <button>Navbar</button>
-      </Link>
+      <Link to="/">Home</Link>
+      <Link to="/watchlist">Watchlist</Link>
+      <Link to="/movies">Movies</Link>
+      <Link to="/movies/add">Add movie</Link>
+      <Link to="/profile">Profile</Link>
 
-      {isLoggedIn && (
+      {/*  {isLoggedIn && (
         <>
           <Link to="/protected">
             <button>Protected</button>
@@ -35,7 +38,7 @@ function Navbar() {
             <button>Login</button>{' '}
           </Link>
         </>
-      )}
+      )} */}
     </nav>
   );
 }
