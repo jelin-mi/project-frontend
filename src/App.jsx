@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import IsAnon from './components/IsAnon';
-import IsPrivate from './components/IsPrivate';
+/* import IsPrivate from './components/IsPrivate'; */
 /* import Navbar from './components/Navbar'; */
 import { AuthProviderWrapper } from './context/auth.context';
 import Error404 from './pages/Error404';
@@ -9,7 +9,7 @@ import LoginPage from './pages/LoginPage';
 import MovieDetail from './pages/MovieDetail';
 import MovieCreate from './pages/MovieCreate';
 import MoviesList from './pages/MoviesList';
-import Protected from './pages/Protected';
+/* import Protected from './pages/Protected'; */
 import SignupPage from './pages/SignupPage';
 import Watchlist from './pages/Watchlist';
 
