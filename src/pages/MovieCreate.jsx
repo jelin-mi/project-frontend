@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function MovieCreate() {
   const [title, setTitle] = useState('');
-  const [year, setYear] = useState(null);
+  const [year, setYear] = useState();
   const [director, setDirector] = useState('');
   const [channel, setChannel] = useState('');
   const [buddy, setBuddy] = useState('');
   const [synopsis, setSynopsis] = useState('');
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState();
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleYear = (e) => setYear(e.target.value);
@@ -23,7 +23,7 @@ function MovieCreate() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  /*   const newMovie = {
+    const newMovie = {
       title,
       year,
       director,
@@ -31,43 +31,100 @@ function MovieCreate() {
       buddy,
       synopsis,
       rating,
-    }; */
+    };
 
-  useEffect(() => {
     apiService
-      .createMovie()
-      .then(response => {
+    .createMovie(newMovie)
+    .then(response => {
+        console.log(response);
         setTitle('');
-        setYear(null);
+        setYear();
         setDirector('');
         setChannel('');
         setBuddy('');
         setSynopsis('');
-        setRating(null);
+        setRating();
+        // createWatchlist()
         navigate('/movies');
       })
       .catch(err => {
         console.log(err);
       });
-  }, []);
+    }
 
-  return (<>
+
+  return (
+  <>
     <h2>Add a movie</h2>
-   {/*   <form onSubmit={handleSubmit} className="form">
+     <form onSubmit={handleSubmit} className="form">
         <div className="label-input">
-          <label>Name</label>
+          <label>Title</label>
           <input
             type="text"
-            placeholder="Name of a beer"
             name="name"
-            value={name}
-            onChange={handleName}
+            value={title}
+            onChange={handleTitle}
+          />
+        </div>
+         <div className="label-input">
+          <label>Year</label>
+          <input
+            type="number"
+            name="year"
+            value={year}
+            onChange={handleYear}
+          />
+        </div>
+         <div className="label-input">
+          <label>Director</label>
+          <input
+            type="text"
+            name="director"
+            value={director}
+            onChange={handleDirector}
+          />
+        </div>
+         <div className="label-input">
+          <label>Channel</label>
+          <input
+            type="text"
+            name="channel"
+            value={channel}
+            onChange={handleChannel}
+          />
+        </div>
+         <div className="label-input">
+          <label>Buddy</label>
+          <input
+            type="text"
+            name="buddy"
+            value={buddy}
+            onChange={handleBuddy}
+          />
+        </div>
+         <div className="label-input">
+          <label>Synopsis</label>
+          <input
+            type="text"
+            name="synopsis"
+            value={synopsis}
+            onChange={handleSynopsis}
+          />
+        </div>
+         <div className="label-input">
+          <label>Rating</label>
+          <input
+            type="number"
+            name="rating"
+            value={rating}
+            onChange={handleRating}
           />
         </div>
 
-        <button type="submit">Submit a Beer</button>
-      </form> */}
-  </>);
+        <button type="submit">Add new movie</button>
+      </form>
+  </>
+  );
 }
 
 export default MovieCreate;
