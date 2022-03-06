@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function Watchlist() {
@@ -21,9 +22,11 @@ function Watchlist() {
       {watchlist.map(watchlist => {
         return (
           <div key={watchlist._id}>
-            <h2>{watchlist.title}</h2>
-            <p>{watchlist.buddy}</p>
-            <span>{watchlist.rating}</span>
+            <Link to={`/movies/${watchlist._id}`}>
+              <h2>{watchlist.title}</h2>
+              <p>{watchlist.buddy}</p>
+              <span>{watchlist.rating}</span>
+            </Link>
           </div>
         );
       })}
