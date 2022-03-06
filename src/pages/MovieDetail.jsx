@@ -26,9 +26,13 @@ function MovieDetail() {
     <>
       <h2>Movie detail</h2>
       <div key={movie._id}>
-          <h2>{movie.title}</h2>
-          <p>{movie.buddy}</p>
-          <span>{movie.rating}</span>
+        <h2>{movie.title}</h2>
+        <p>Year: {movie.year}</p>
+        <p>Director: {movie.director}</p>
+        <p>Synopsis: {movie.synopsis}</p>
+        <p>Channel: {movie.channel}</p>
+        <p>Buddy: {movie.buddy}</p>
+        <p>{movie.rating}</p>
       </div>
     </>
   );
