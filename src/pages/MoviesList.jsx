@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
-/* import MovieDetail from './MovieDetail'; */
+import Navbar from '../components/Navbar';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -24,7 +24,7 @@ function MoviesList() {
       .createWatchlist({
         movieId: movieId,
       })
-      .then()
+      .then()   //TODO
       .catch();
   };
 
@@ -35,7 +35,6 @@ function MoviesList() {
       <h1>Buddy movies</h1>
       {movies.map(movie => {
         return (
-          <>
             <div key={movie._id}>
               <Link to={`/movies/${movie._id}`}>
                 <h2>{movie.title}</h2>
@@ -44,9 +43,9 @@ function MoviesList() {
               </Link>
               <button onClick={() => handleOnClick(movie._id)}>watchlist</button>
             </div>
-          </>
         );
       })}
+      <Navbar />
     </>
   );
 }
