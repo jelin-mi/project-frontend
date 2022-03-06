@@ -25,8 +25,8 @@ function App() {
             <IsPrivate>
               <Protected />
             </IsPrivate>
-          } */}
-        />
+          }
+        /> */}
         <Route
           path="/login"
           element={
