@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 import Navbar from '../components/Navbar';
+import Search from '../components/Search';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // List of all movies
   useEffect(() => {
     apiService
       .getAllMovies()
@@ -19,6 +21,7 @@ function MoviesList() {
       });
   }, []);
 
+  // Add to my Watchlist
   const handleOnClick = movieId => {
     apiService
       .addToWatchlist({
@@ -26,10 +29,23 @@ function MoviesList() {
       })
       .then(response => {
         console.log(response.data);
-      }) //TODO
+      })
       .catch(err => {
         console.log(err);
       });
+  };
+
+  // Search
+  const onFilter = searchTerm => {
+    if (searchTerm === '') {
+      setMovies(movies);
+    } else {
+      setMovies(movies.filter(movie => movie.title.toLowerCase().includes(searchTerm.toLowerCase())));
+    }
+  };
+
+  const handleReset = () => {
+    setMovies(movies);
   };
 
   if (isLoading) return null;
@@ -37,6 +53,7 @@ function MoviesList() {
   return (
     <>
       <h1>Buddy movies</h1>
+      <Search onFilter={onFilter} handleReset={handleReset} />
       {movies.map(movie => {
         return (
           <div key={movie._id}>
@@ -47,7 +64,7 @@ function MoviesList() {
               {movie.rating === 2 && '★★☆'}
               {movie.rating === 3 && '★★★'}
             </Link>
-            <button onClick={() => handleOnClick(movie._id)}>watchlist</button>
+            <button onClick={() => handleOnClick(movie._id)}>watchlist 👍</button>
           </div>
         );
       })}
