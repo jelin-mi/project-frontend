@@ -19,7 +19,6 @@ function Watchlist() {
       });
   }, []);
 
-
   const handleOnClick = watchlistId => {
     apiService
       .removeFromWatchlist(watchlistId) //TODO
@@ -35,6 +34,14 @@ function Watchlist() {
   return (
     <>
       <h1>My Watchlist</h1>
+      {watchlist.length === 0 && (
+        <p>
+          You do not have any movies in your Watchlist yet.
+          <br />
+          Go to the <Link to={'/movies'}>Movies</Link> page and add some by clicking at 👍 icon.
+        </p>
+      )}
+
       {watchlist.map(watchlist => {
         return (
           <>
