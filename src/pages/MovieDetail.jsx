@@ -34,7 +34,9 @@ function MovieDetail() {
         <p>Synopsis: {movie.synopsis}</p>
         <p>Channel: {movie.channel}</p>
         <p>Buddy: {movie.buddy}</p>
-        <p>{movie.rating}</p>
+        {movie.rating === 1 && '★☆☆'}
+        {movie.rating === 2 && '★★☆'}
+        {movie.rating === 3 && '★★★'}
         <Link to={`/movies/${movie._id}/edit`}>Edit</Link>
         <Navbar />
       </div>

@@ -39,14 +39,16 @@ function MoviesList() {
       <h1>Buddy movies</h1>
       {movies.map(movie => {
         return (
-            <div key={movie._id}>
-              <Link to={`/movies/${movie._id}`}>
-                <h2>{movie.title}</h2>
-                <p>{movie.buddy}</p>
-                <span>{movie.rating}</span>
-              </Link>
-              <button onClick={() => handleOnClick(movie._id)}>watchlist</button>
-            </div>
+          <div key={movie._id}>
+            <Link to={`/movies/${movie._id}`}>
+              <h2>{movie.title}</h2>
+              <p>{movie.buddy}</p>
+              {movie.rating === 1 && '★☆☆'}
+              {movie.rating === 2 && '★★☆'}
+              {movie.rating === 3 && '★★★'}
+            </Link>
+            <button onClick={() => handleOnClick(movie._id)}>watchlist</button>
+          </div>
         );
       })}
       <Navbar />

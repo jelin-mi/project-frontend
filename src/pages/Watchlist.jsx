@@ -42,7 +42,9 @@ function Watchlist() {
               <Link to={`/movies/${watchlist._id}`}>
                 <h2>{watchlist.title}</h2>
                 <p>{watchlist.buddy}</p>
-                <span>{watchlist.rating}</span>
+                {watchlist.rating === 1 && '★☆☆'}
+                {watchlist.rating === 2 && '★★☆'}
+                {watchlist.rating === 3 && '★★★'}
               </Link>
               <button onClick={() => handleOnClick(watchlist._id)}>remove</button>
             </div>
