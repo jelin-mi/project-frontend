@@ -45,7 +45,7 @@ function MoviesList() {
   };
 
   const handleReset = () => {
-    setMovies(movies);
+    location.reload();
   };
 
   if (isLoading) return null;
