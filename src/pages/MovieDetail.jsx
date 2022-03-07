@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import LikeButton from '../components/LikeButton';
 import Navbar from '../components/Navbar';
 import apiService from '../services/api.service';
 /* import IsAnon from '../components/IsAnon'; */
@@ -37,6 +38,8 @@ function MovieDetail() {
         {movie.rating === 1 && '★☆☆'}
         {movie.rating === 2 && '★★☆'}
         {movie.rating === 3 && '★★★'}
+        <LikeButton>👍</LikeButton>
+        <LikeButton>👎</LikeButton>
         <Link to={`/movies/${movie._id}/edit`}>Edit</Link>
         <Navbar />
       </div>
