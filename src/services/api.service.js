@@ -42,8 +42,12 @@ class ApiService {
     return this.api.get('/api/watchlist');
   };
 
-  createWatchlist = body => {
+  addToWatchlist = body => {
     return this.api.post('/api/watchlist', body);
+  };
+
+  removeFromWatchlist = body => {
+    return this.api.delete('/api/watchlist', body);
   };
 
   // Movies

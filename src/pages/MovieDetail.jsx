@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import apiService from '../services/api.service';
 /* import IsAnon from '../components/IsAnon'; */
 
@@ -35,6 +36,7 @@ function MovieDetail() {
         <p>Buddy: {movie.buddy}</p>
         <p>{movie.rating}</p>
         <Link to={`/movies/${movie._id}/edit`}>Edit</Link>
+        <Navbar />
       </div>
     </>
   );

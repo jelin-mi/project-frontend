@@ -21,11 +21,15 @@ function MoviesList() {
 
   const handleOnClick = movieId => {
     apiService
-      .createWatchlist({
+      .addToWatchlist({
         movieId: movieId,
       })
-      .then()   //TODO
-      .catch();
+      .then(response => {
+        console.log(response.data);
+      }) //TODO
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   if (isLoading) return null;

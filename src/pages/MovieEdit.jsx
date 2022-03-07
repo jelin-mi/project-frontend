@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import apiService from '../services/api.service';
 
 function MovieEdit() {
@@ -17,7 +18,9 @@ function MovieEdit() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    apiService.getOneMovie(id).then(response => {
+    apiService
+    .getOneMovie(id)
+    .then(response => {
       setMovie(response.data);
     });
   }, []);
@@ -87,6 +90,7 @@ function MovieEdit() {
         
         <button type="submit">Edit movie</button>
       </form>
+      <Navbar />
     </>
   );
 }

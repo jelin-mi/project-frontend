@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import apiService from '../services/api.service';
 
 function MovieCreate() {
@@ -35,11 +36,12 @@ function MovieCreate() {
 
     apiService
       .createMovie(newMovie)
-     /*  .createWatchlist({
+      /*  .addToWatchlist({
         movieId: movieId,
       }) */
       .then(response => {
         console.log(response);
+
         setTitle('');
         setYear();
         setDirector('');
@@ -126,6 +128,7 @@ function MovieCreate() {
 
         <button type="submit">Add new movie</button>
       </form>
+      <Navbar />
   </>
   );
 }
