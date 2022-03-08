@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import IsAnon from './components/IsAnon';
-/* import IsPrivate from './components/IsPrivate'; */
+import IsPrivate from './components/IsPrivate';
 /* import Navbar from './components/Navbar'; */
 import { AuthProviderWrapper } from './context/auth.context';
 import Error404 from './pages/Error404';
@@ -13,6 +13,7 @@ import MoviesList from './pages/MoviesList';
 import SignupPage from './pages/SignupPage';
 import Watchlist from './pages/Watchlist';
 import MovieEdit from './pages/MovieEdit';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         {/*    <Route
           path="/protected"
           element={
-            <IsPrivate>
+            <IsPrivate>   add some pages if needed
               <Protected />
             </IsPrivate>
           }
@@ -45,10 +46,39 @@ function App() {
           }
         />
         <Route path="/movies" element={<MoviesList />} />
-        <Route path="/movies/add" element={<MovieCreate />} />
+        <Route
+          path="/movies/add"
+          element={
+            <IsPrivate>
+              <MovieCreate />
+            </IsPrivate>
+          }
+        />
         <Route path="/movies/:id" element={<MovieDetail />} />
-        <Route path="/movies/:id/edit" element={<MovieEdit />} />
-        <Route path="/watchlist" element={<Watchlist />} />
+        <Route
+          path="/movies/:id/edit"
+          element={
+            <IsPrivate>
+              <MovieEdit />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/watchlist"
+          element={
+            <IsPrivate>
+              <Watchlist />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <Profile />
+            </IsPrivate>
+          }
+        />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </AuthProviderWrapper>
