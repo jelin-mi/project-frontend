@@ -66,6 +66,13 @@ class ApiService {
   editMovie = (id, body) => {
     return this.api.put(`/api/movies/${id}`, body);
   };
+
+  // Profile
+  getProfile = () => {
+    return this.api.get('/api/profile');
+  };
+  
+  //TODO
 }
 
 // Create one instance (object) of the service
