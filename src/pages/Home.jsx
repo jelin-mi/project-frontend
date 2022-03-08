@@ -30,7 +30,7 @@ function Home() {
       {isLoggedIn && (
         <>
           <p>
-            Hello buddy{/*  {user && user.name} */}, check your <Link to={'/watchlist'}>Watchlist</Link>.
+            Hello buddy{/*  {user && user.name} */}, check your <Link to={'/watchlist'}>Watchlist</Link>. {/* //TODO si user existe --> user.name, si no 'buddy' */}
           </p>{' '}
         </>
       )}
