@@ -85,7 +85,7 @@ function MovieEdit() {
         </div>
         <div className="label-input">
           <label>Rating</label>
-          <input type="number" name="rating" value={movie.rating} onChange={handleOnChange} />
+          <input type="number" name="rating" min="1" max="3" value={movie.rating} onChange={handleOnChange} />
         </div>
         
         <button type="submit">Edit movie</button>

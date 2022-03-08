@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import LikeButton from '../components/LikeButton';
 import Navbar from '../components/Navbar';
+import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
-/* import IsAnon from '../components/IsAnon'; */
 
 function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [movie, setMovie] = useState({});
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     apiService
@@ -40,7 +41,7 @@ function MovieDetail() {
         {movie.rating === 3 && '★★★'}
         <LikeButton>👍</LikeButton>
         <LikeButton>👎</LikeButton>
-        <Link to={`/movies/${movie._id}/edit`}>Edit</Link>
+        {movie.owner === user._id && (<Link to={`/movies/${movie._id}/edit`}>Edit</Link>)}
         <Navbar />
       </div>
     </>

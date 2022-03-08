@@ -47,7 +47,7 @@ class ApiService {
   };
 
   removeFromWatchlist = body => {
-    return this.api.delete('/api/watchlist', body);
+    return this.api.post('/api/watchlist/delete', body);
   };
 
   // Movies

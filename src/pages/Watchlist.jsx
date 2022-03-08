@@ -1,36 +1,39 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 import Navbar from '../components/Navbar';
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState([]);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
+  const getWhatchlist = () => {
     apiService
       .getWatchlist()
       .then(response => {
-        setWatchlist(response.data.map(watchlist => watchlist.movie));
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
-
-  const handleOnClick = watchlistId => {
-    apiService
-      .removeFromWatchlist(watchlistId) //TODO
-      .then(response => {
-        console.log(response.data);
-        navigate('/watchlist');
+        setWatchlist(response.data);
       })
       .catch(err => {
         console.log(err);
       });
   };
 
+  useEffect(() => {
+    getWhatchlist();
+  }, []);
+
+  const handleOnClick = watchlistId => {
+    apiService
+
+      .removeFromWatchlist({ watchlistId })
+      .then(response => {
+        console.log(response.data);
+        getWhatchlist();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+  console.log(watchlist);
   return (
     <>
       <h1>My Watchlist</h1>
@@ -46,12 +49,12 @@ function Watchlist() {
         return (
           <>
             <div key={watchlist._id}>
-              <Link to={`/movies/${watchlist._id}`}>
-                <h2>{watchlist.title}</h2>
-                <p>{watchlist.buddy}</p>
-                {watchlist.rating === 1 && '★☆☆'}
-                {watchlist.rating === 2 && '★★☆'}
-                {watchlist.rating === 3 && '★★★'}
+              <Link to={`/movies/${watchlist.movie._id}`}>
+                <h2>{watchlist.movie.title}</h2>
+                <p>{watchlist.movie.buddy}</p>
+                {watchlist.movie.rating === 1 && '★☆☆'}
+                {watchlist.movie.rating === 2 && '★★☆'}
+                {watchlist.movie.rating === 3 && '★★★'}
               </Link>
               <button onClick={() => handleOnClick(watchlist._id)}>remove</button>
             </div>
