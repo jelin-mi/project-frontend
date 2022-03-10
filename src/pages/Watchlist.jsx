@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 import Navbar from '../components/Navbar/Navbar';
+import { ReactComponent as Star } from '../../src/assets/star.svg';
+import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState([]);
@@ -47,18 +49,34 @@ function Watchlist() {
 
       {watchlist.map(watchlist => {
         return (
-         
-            <div key={watchlist._id}>
-              <Link to={`/movies/${watchlist.movie._id}`}>
-                <h2>{watchlist.movie.title}</h2>
-                <p>{watchlist.movie.buddy}</p>
-                {watchlist.movie.rating === 1 && '★☆☆'}
-                {watchlist.movie.rating === 2 && '★★☆'}
-                {watchlist.movie.rating === 3 && '★★★'}
-              </Link>
-              <button onClick={() => handleOnClick(watchlist._id)}>remove</button>
-            </div>
-          
+          <div key={watchlist._id}>
+            <Link to={`/movies/${watchlist.movie._id}`}>
+              <h2>{watchlist.movie.title}</h2>
+              <p>{watchlist.movie.buddy}</p>
+              {watchlist.movie.rating === 1 && (
+                <>
+                  <Star />
+                  <StarActive />
+                  <StarActive />
+                </>
+              )}
+              {watchlist.movie.rating === 2 && (
+                <>
+                  <StarActive />
+                  <StarActive />
+                  <Star />
+                </>
+              )}
+              {watchlist.movie.rating === 3 && (
+                <>
+                  <StarActive />
+                  <StarActive />
+                  <StarActive />
+                </>
+              )}
+            </Link>
+            <button onClick={() => handleOnClick(watchlist._id)}>remove</button>
+          </div>
         );
       })}
       <Navbar />

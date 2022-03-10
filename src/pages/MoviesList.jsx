@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
+import { ReactComponent as Star } from '../../src/assets/star.svg';
+import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Navbar from '../components/Navbar/Navbar';
 import Search from '../components/Search';
 
@@ -60,9 +62,27 @@ function MoviesList() {
             <Link to={`/movies/${movie._id}`}>
               <h2>{movie.title}</h2>
               <p>{movie.buddy}</p>
-              {movie.rating === 1 && '★☆☆'}
-              {movie.rating === 2 && '★★☆'}
-              {movie.rating === 3 && '★★★'}
+              {movie.rating === 1 && (
+                <>
+                  <Star />
+                  <StarActive />
+                  <StarActive />
+                </>
+              )}
+              {movie.rating === 2 && (
+                <>
+                  <StarActive />
+                  <StarActive />
+                  <Star />
+                </>
+              )}
+              {movie.rating === 3 && (
+                <>
+                  <StarActive />
+                  <StarActive />
+                  <StarActive />
+                </>
+              )}
             </Link>
             <button onClick={() => handleOnClick(movie._id)}>watchlist 👍</button>
           </div>

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
 
 function Home() {
-  const { isLoggedIn, user } = useContext(AuthContext);
+  const { isLoggedIn/* , user */ } = useContext(AuthContext);
 
   return (
     <div>
@@ -26,7 +26,7 @@ function Home() {
       )}
       {isLoggedIn && (
           <p>
-            Hello {user.name ? user.name : 'buddy'}, check your <Link to={'/watchlist'}>Watchlist</Link>.
+            Hello buddy{/* {user.name ? user.name : 'buddy'} */}, check your <Link to={'/watchlist'}>Watchlist</Link>.
           </p>
       )}
     </div>

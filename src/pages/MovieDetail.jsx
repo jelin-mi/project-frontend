@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import LikeButton from '../components/LikeButton';
 import Navbar from '../components/Navbar/Navbar';
+import { ReactComponent as Star } from '../../src/assets/star.svg';
+import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
 
@@ -36,12 +38,30 @@ function MovieDetail() {
         <p>Synopsis: {movie.synopsis}</p>
         <p>Channel: {movie.channel}</p>
         <p>Buddy: {movie.buddy}</p>
-        {movie.rating === 1 && '★☆☆'}
-        {movie.rating === 2 && '★★☆'}
-        {movie.rating === 3 && '★★★'}
+        {movie.rating === 1 && (
+          <>
+            <Star />
+            <StarActive />
+            <StarActive />
+          </>
+        )}
+        {movie.rating === 2 && (
+          <>
+            <StarActive />
+            <StarActive />
+            <Star />
+          </>
+        )}
+        {movie.rating === 3 && (
+          <>
+            <StarActive />
+            <StarActive />
+            <StarActive />
+          </>
+        )}
         <LikeButton>👍</LikeButton>
         <LikeButton>👎</LikeButton>
-        {movie.owner === user._id && (<Link to={`/movies/${movie._id}/edit`}>Edit</Link>)}
+        {movie.owner === user._id && <Link to={`/movies/${movie._id}/edit`}>Edit</Link>}
         <Navbar />
       </div>
     </>
