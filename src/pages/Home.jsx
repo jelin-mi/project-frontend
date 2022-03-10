@@ -1,4 +1,4 @@
-import cover from '../assets/dog.jpg';
+
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <h1>BuddyFilms</h1>
-      <img src={cover} alt="" />
+      {/* <img src={cover} alt="" /> */}
 
       {!isLoggedIn && (
         <>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import LikeButton from '../components/LikeButton';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
 

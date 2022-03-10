@@ -1,6 +1,41 @@
+:root {
+  --brown: #370906;
+  --yellow: #FED800;
+  --grey: #D7CECD;
+}
+
+.active {
+  color: var(--yellow);
+}
+
+.inactive {
+  color: var(--grey)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* nombres
+ */
+
 /* Tipography */
 
-@font-face {
+/* @font-face {
   font-family: 'Avenir_LT_Medium';
   src:
   url('css/fonts/avenir_lt_medium.otf') format('opentype'),
@@ -41,4 +76,4 @@
 
 h1{
   font-family: 'Avenir_LT_Medium';
-}
+} */

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState([]);
@@ -47,7 +47,7 @@ function Watchlist() {
 
       {watchlist.map(watchlist => {
         return (
-          <>
+         
             <div key={watchlist._id}>
               <Link to={`/movies/${watchlist.movie._id}`}>
                 <h2>{watchlist.movie.title}</h2>
@@ -58,7 +58,7 @@ function Watchlist() {
               </Link>
               <button onClick={() => handleOnClick(watchlist._id)}>remove</button>
             </div>
-          </>
+          
         );
       })}
       <Navbar />

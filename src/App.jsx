@@ -14,6 +14,7 @@ import SignupPage from './pages/SignupPage';
 import Watchlist from './pages/Watchlist';
 import MovieEdit from './pages/MovieEdit';
 import Profile from './pages/Profile';
+import './App.css';
 
 function App() {
   return (

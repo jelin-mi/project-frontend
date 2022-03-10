@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import Search from '../components/Search';
 
 function MoviesList() {

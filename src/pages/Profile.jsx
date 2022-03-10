@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
 import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
 
@@ -26,6 +27,7 @@ function Profile() {
       <h1>User profile</h1>
       <p>{profile.email}</p>
       <button onClick={logOutUser}>Logout</button>
+      <Navbar />
     </>
   );
 }

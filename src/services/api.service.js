@@ -71,8 +71,6 @@ class ApiService {
   getProfile = () => {
     return this.api.get('/api/profile');
   };
-  
-  //TODO
 }
 
 // Create one instance (object) of the service
