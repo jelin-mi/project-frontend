@@ -1,0 +1,44 @@
+/* Tipography */
+
+@font-face {
+  font-family: 'Avenir_LT_Medium';
+  src:
+  url('css/fonts/avenir_lt_medium.otf') format('opentype'),
+  url('css/fonts/avenir_lt_medium.eot') format('eot'),
+  url('css/fonts/avenir_lt_medium.woff') format('woff'), 
+  url('css/fonts/avenir_lt_medium.ttf') format('truetype'),
+  url('css/fonts/avenir_lt_medium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir_LT_Medium';
+  src:
+  url('css/fonts/avenir_lt_medium.otf') format('opentype'),
+  url('css/fonts/avenir_lt_medium.eot') format('eot'),
+  url('css/fonts/avenir_lt_medium.woff') format('woff'), 
+  url('css/fonts/avenir_lt_medium.ttf') format('truetype'),
+  url('css/fonts/avenir_lt_medium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir_LT_Medium';
+  src:
+  url('css/fonts/avenir_lt_medium.otf') format('opentype'),
+  url('css/fonts/avenir_lt_medium.eot') format('eot'),
+  url('css/fonts/avenir_lt_medium.woff') format('woff'), 
+  url('css/fonts/avenir_lt_medium.ttf') format('truetype'),
+  url('css/fonts/avenir_lt_medium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+h1{
+  font-family: 'Avenir_LT_Medium';
+}
