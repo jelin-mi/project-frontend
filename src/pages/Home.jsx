@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <div>
-      <h1>Buddy Films</h1>
+      <h1>BuddyFilms</h1>
       <img src={cover} alt="" />
 
       {!isLoggedIn && (
@@ -22,8 +22,7 @@ function Home() {
             <button>Login</button>{' '}
           </Link>
           <p>
-            Do you want to look around a bit before signing up? Check the <Link to={'/movies'}>movies</Link>{' '}
-            Buddies uploaded.
+            Do you want to look around a bit before signing up? Check the <Link to={'/movies'}>movies</Link>.
           </p>{' '}
         </>
       )}
