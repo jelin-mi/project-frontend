@@ -31,7 +31,7 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Welcome to Buddy Films</h1>
+      <h1>BuddyFilms login</h1>
       <p>
         Hey movie lover,
         <br />
