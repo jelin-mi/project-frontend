@@ -52,7 +52,7 @@ function MoviesList() {
 
   return (
     <>
-      <h1>Buddy movies</h1>
+      <h1>BuddyFilms list</h1>
       <Search onFilter={onFilter} handleReset={handleReset} />
       {movies.map(movie => {
         return (
