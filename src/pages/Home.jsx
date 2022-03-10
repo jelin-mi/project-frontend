@@ -1,15 +1,15 @@
-
+import cover from '../assets/popcorn.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
 
 function Home() {
-  const { isLoggedIn, /* user, */ logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, /* user, */ } = useContext(AuthContext);
 
   return (
     <div>
       <h1>BuddyFilms</h1>
-      {/* <img src={cover} alt="" /> */}
+      <img src={cover} alt="" />
 
       {!isLoggedIn && (
         <>
@@ -33,7 +33,6 @@ function Home() {
           </p>{' '}
         </>
       )}
-      <button onClick={logOutUser}>Logout</button>
     </div>
   );
 }
