@@ -1,40 +1,30 @@
 import { Route, Routes } from 'react-router-dom';
+import { AuthProviderWrapper } from './context/auth.context';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-/* import Navbar from './components/Navbar'; */
-import { AuthProviderWrapper } from './context/auth.context';
 import Error404 from './pages/Error404';
+import './App.css';
+
 import Home from './pages/Home';
-import LoginPage from './pages/LoginPage';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import MoviesList from './pages/MoviesList';
 import MovieDetail from './pages/MovieDetail';
 import MovieCreate from './pages/MovieCreate';
-import MoviesList from './pages/MoviesList';
-/* import Protected from './pages/Protected'; */
-import SignupPage from './pages/SignupPage';
-import Watchlist from './pages/Watchlist';
 import MovieEdit from './pages/MovieEdit';
+import Watchlist from './pages/Watchlist';
 import Profile from './pages/Profile';
-import './App.css';
 
 function App() {
   return (
     <AuthProviderWrapper>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        {/*    <Route
-          path="/protected"
-          element={
-            <IsPrivate>   add some pages if needed
-              <Protected />
-            </IsPrivate>
-          }
-        /> */}
         <Route
           path="/login"
           element={
             <IsAnon>
-              <LoginPage />
+              <Login />
             </IsAnon>
           }
         />
@@ -42,7 +32,7 @@ function App() {
           path="/signup"
           element={
             <IsAnon>
-              <SignupPage />
+              <Signup />
             </IsAnon>
           }
         />
