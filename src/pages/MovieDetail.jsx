@@ -40,23 +40,17 @@ function MovieDetail() {
         <p>Buddy: {movie.buddy}</p>
         {movie.rating === 1 && (
           <>
-            <Star />
-            <StarActive />
-            <StarActive />
+            <StarActive /> <StarActive /> <Star />
           </>
         )}
         {movie.rating === 2 && (
           <>
-            <StarActive />
-            <StarActive />
-            <Star />
+            <StarActive /> <StarActive /> <Star />
           </>
         )}
         {movie.rating === 3 && (
           <>
-            <StarActive />
-            <StarActive />
-            <StarActive />
+            <StarActive /> <StarActive /> <StarActive />
           </>
         )}
         <LikeButton>👍</LikeButton>
