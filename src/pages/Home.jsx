@@ -4,34 +4,30 @@ import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
 
 function Home() {
-  const { isLoggedIn, /* user, */ } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   return (
     <div>
-      <h1>BuddyFilms</h1>
       <img src={cover} alt="" />
+      <h1>BuddyFilms</h1>
 
       {!isLoggedIn && (
         <>
           <Link to="/signup">
-            {' '}
-            <button>Sign up</button>{' '}
+            <button>Sign up</button>
           </Link>
           <Link to="/login">
-            {' '}
-            <button>Login</button>{' '}
+            <button>Log in</button>
           </Link>
           <p>
             Do you want to look around a bit before signing up? Check the <Link to={'/movies'}>movies</Link>.
-          </p>{' '}
+          </p>
         </>
       )}
       {isLoggedIn && (
-        <>
           <p>
-            Hello buddy{/*  {user && user.name} */}, check your <Link to={'/watchlist'}>Watchlist</Link>. {/* //TODO si user existe --> user.name, si no 'buddy' */}
-          </p>{' '}
-        </>
+            Hello {user.name ? user.name : 'buddy'}, check your <Link to={'/watchlist'}>Watchlist</Link>.
+          </p>
       )}
     </div>
   );
