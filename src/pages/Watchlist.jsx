@@ -46,7 +46,6 @@ function Watchlist() {
           Go to the <Link to={'/movies'}>Movies</Link> page and add some by clicking at 👍 icon.
         </p>
       )}
-
       {watchlist.map(watchlist => {
         return (
           <div key={watchlist._id}>

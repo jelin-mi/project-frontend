@@ -25,9 +25,9 @@ function Home() {
         </>
       )}
       {isLoggedIn && (
-          <p>
-            Hello buddy{/* {user.name ? user.name : 'buddy'} */}, check your <Link to={'/watchlist'}>Watchlist</Link>.
-          </p>
+        <p>
+          Hello buddy{/* {user.name ? user.name : 'buddy'} */}, check your <Link to={'/movies'}>movies</Link>.
+        </p>
       )}
     </div>
   );

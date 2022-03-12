@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import LikeButton from '../components/LikeButton';
+/* import LikeButton from '../components/LikeButton'; */
 import Navbar from '../components/Navbar/Navbar';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
@@ -26,11 +26,24 @@ function MovieDetail() {
       });
   }, []);
 
+  // Add to my Watchlist
+  const handleOnClick = movieId => {
+    apiService
+      .addToWatchlist({
+        movieId: movieId,
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   if (isLoading) return null;
 
   return (
     <>
-      <h2>Movie detail</h2>
       <div key={movie._id}>
         <h2>{movie.title}</h2>
         <p>Year: {movie.year}</p>
@@ -53,9 +66,10 @@ function MovieDetail() {
             <StarActive /> <StarActive /> <StarActive />
           </>
         )}
-        <LikeButton>👍</LikeButton>
-        <LikeButton>👎</LikeButton>
+        {/* <LikeButton>👍</LikeButton>
+        <LikeButton>👎</LikeButton> */}
         {movie.owner === user._id && <Link to={`/movies/${movie._id}/edit`}>Edit</Link>}
+        <button onClick={() => handleOnClick(movie._id)}>watchlist 👍</button>
         <Navbar />
       </div>
     </>

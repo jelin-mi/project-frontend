@@ -61,7 +61,7 @@ function MoviesList() {
           <div key={movie._id}>
             <Link to={`/movies/${movie._id}`}>
               <h2>{movie.title}</h2>
-              <p>{movie.buddy}</p>
+              <p>by {movie.buddy}</p>
               {movie.rating === 1 && (
                 <>
                   <StarActive /> <StarActive /> <Star />
