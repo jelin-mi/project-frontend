@@ -25,7 +25,6 @@ function Watchlist() {
 
   const handleOnClick = watchlistId => {
     apiService
-
       .removeFromWatchlist({ watchlistId })
       .then(response => {
         console.log(response.data);

@@ -1,15 +1,15 @@
 :root {
-  --brown: #370906;
-  --yellow: #FED800;
-  --grey: #D7CECD;
+  --background: #370906;
+  --active: #FED800;
+  --inactive: #D7CECD;
 }
 
 .active {
-  color: var(--yellow);
+  color: var(--active);
 }
 
 .inactive {
-  color: var(--grey)
+  color: var(--inactive)
 }
 
 
@@ -30,8 +30,6 @@
 
 
 
-/* nombres
- */
 
 /* Tipography */
 

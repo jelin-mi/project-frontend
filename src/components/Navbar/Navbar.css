@@ -1,10 +1,29 @@
 /* ----- Navbar -----*/
 
 .navbar-bg {
-  background-color: var(--brown);
+  background-color: var(--background);
   width: 100%;
-  max-width: 100%;
-  height: 100px;
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+}
+
+nav {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+nav a {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-size: 14px;
+  text-decoration: none;
 }
