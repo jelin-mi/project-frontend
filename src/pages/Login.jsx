@@ -1,5 +1,4 @@
 import { useState, useContext } from 'react';
-
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
@@ -9,7 +8,6 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
-
   const { login } = useContext(AuthContext);
 
   const handleEmail = e => setEmail(e.target.value);
@@ -30,7 +28,7 @@ function Login() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="container">
       <h1>BuddyFilms login</h1>
       <p>
         Hey movie lover,

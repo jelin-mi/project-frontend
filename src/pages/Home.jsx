@@ -2,12 +2,21 @@ import cover from '../assets/popcorn.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
+import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 
 function Home() {
-  const { isLoggedIn/* , user */ } = useContext(AuthContext);
+  const { isLoggedIn, isLoading /* , user */ } = useContext(AuthContext);
 
   return (
-    <div>
+    <>
+    {isLoading && 
+      <div className='loading'>
+       <Loading /> 
+      </div>
+     }
+
+    {!isLoading &&
+    <div className="container">
       <img src={cover} alt="" />
       <h1>BuddyFilms</h1>
 
@@ -30,6 +39,10 @@ function Home() {
         </p>
       )}
     </div>
+    
+    
+    }
+    </>
   );
 }
 

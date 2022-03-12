@@ -1,24 +1,18 @@
-/* ----- Navbar -----*/
-
-.navbar-bg {
+.navbar {
   background-color: var(--background);
   width: 100%;
   position: fixed;
   bottom: -1px;
-}
-
-.navbar {
-  width: 100%;
-  position: fixed;
-}
-
-nav {
   display: flex;
   padding: 20px;
   justify-content: center;
 }
 
-nav a {
+.item {
+  background-color: red;
+}
+
+.navbar a {
   width: 100%;
   display: flex;
   flex-direction: column;

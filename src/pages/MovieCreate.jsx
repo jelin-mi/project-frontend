@@ -58,78 +58,44 @@ function MovieCreate() {
 
 
   return (
-  <>
-    <h2>Add a movie</h2>
-     <form onSubmit={handleSubmit} className="form">
-        <div className="label-input">
-          <label>Title</label>
-          <input
-            type="text"
-            name="name"
-            value={title}
-            onChange={handleTitle}
-          />
-        </div>
-         <div className="label-input">
-          <label>Year</label>
-          <input
-            type="number"
-            name="year"
-            value={year}
-            onChange={handleYear}
-          />
-        </div>
-         <div className="label-input">
-          <label>Director</label>
-          <input
-            type="text"
-            name="director"
-            value={director}
-            onChange={handleDirector}
-          />
-        </div>
-         <div className="label-input">
-          <label>Channel</label>
-          <input
-            type="text"
-            name="channel"
-            value={channel}
-            onChange={handleChannel}
-          />
-        </div>
-         <div className="label-input">
-          <label>Buddy</label>
-          <input
-            type="text"
-            name="buddy"
-            value={buddy}
-            onChange={handleBuddy}
-          />
-        </div>
-         <div className="label-input">
-          <label>Synopsis</label>
-          <input
-            type="text"
-            name="synopsis"
-            value={synopsis}
-            onChange={handleSynopsis}
-          />
-        </div>
-         <div className="label-input">
-          <label>Rating</label>
-          <input
-            type="number"
-            name="rating"
-            value={rating}
-            onChange={handleRating}
-            placeholder="1, 2 or 3"
-          />
-        </div>
+    <>
+      <div className="container">
+        <h2>Add new film</h2>
+        <form onSubmit={handleSubmit} className="form">
+          <div className="label-input">
+            <label>Title</label>
+            <input type="text" name="name" value={title} onChange={handleTitle} />
+          </div>
+          <div className="label-input">
+            <label>Year</label>
+            <input type="number" name="year" value={year} onChange={handleYear} />
+          </div>
+          <div className="label-input">
+            <label>Director</label>
+            <input type="text" name="director" value={director} onChange={handleDirector} />
+          </div>
+          <div className="label-input">
+            <label>Channel</label>
+            <input type="text" name="channel" value={channel} onChange={handleChannel} />
+          </div>
+          <div className="label-input">
+            <label>Buddy</label>
+            <input type="text" name="buddy" value={buddy} onChange={handleBuddy} />
+          </div>
+          <div className="label-input">
+            <label>Synopsis</label>
+            <input type="text" name="synopsis" value={synopsis} onChange={handleSynopsis} />
+          </div>
+          <div className="label-input">
+            <label>Rating</label>
+            <input type="number" name="rating" value={rating} onChange={handleRating} placeholder="1, 2 or 3" />
+          </div>
 
-        <button type="submit">Add new movie</button>
-      </form>
+          <button type="submit">Add new movie</button>
+        </form>
+      </div>
       <Navbar />
-  </>
+    </>
   );
 }
 

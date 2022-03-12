@@ -24,9 +24,11 @@ function Profile() {
 
   return (
     <>
-      <h1>User profile</h1>
-      <p>{profile.email}</p>
-      <button onClick={logOutUser}>Logout</button>
+      <div className="container">
+        <h1>User profile</h1>
+        <p>{profile.email}</p>
+        <button onClick={logOutUser}>Logout</button>
+      </div>
       <Navbar />
     </>
   );

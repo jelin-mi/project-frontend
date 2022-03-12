@@ -7,28 +7,33 @@ import { ReactComponent as Profile } from '../../assets/profile.svg';
 
 function Navbar() {
   return (
-    <div className="navbar-bg">
-      <nav>
-        <div className="item">
-          <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/watchlist">
-            <Watchlist /> Watchlist
-          </NavLink>
-        </div>
-      
-        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies" end>
-          <Films />Films
+    <nav className="navbar">
+      <div className="item">
+        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/watchlist">
+          <Watchlist /> <span>Watchlist</span>
         </NavLink>
+      </div>
 
-       
+      <div className="item">
+        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies" end>
+          <Films />
+          <span>Films</span>
+        </NavLink>
+      </div>
+
+      <div className="item">
         <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies/add">
-          <New />New film
+          <New />
+          <span>New film</span> 
         </NavLink>
-        
+      </div>
+
+      <div className="item">
         <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/profile">
-         <Profile /> Profile
+          <Profile /> <span>Profile</span>
         </NavLink>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

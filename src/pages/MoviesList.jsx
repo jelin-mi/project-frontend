@@ -4,7 +4,7 @@ import apiService from '../services/api.service';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Navbar from '../components/Navbar/Navbar';
-import Search from '../components/Search';
+import Search from '../components/Search/Search';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -54,6 +54,7 @@ function MoviesList() {
 
   return (
     <>
+    <div className='container'>
       <h1>BuddyFilms list</h1>
       <Search onFilter={onFilter} handleReset={handleReset} />
       {movies.map(movie => {
@@ -82,6 +83,7 @@ function MoviesList() {
           </div>
         );
       })}
+      </div>
       <Navbar />
     </>
   );

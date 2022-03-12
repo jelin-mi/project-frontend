@@ -2,7 +2,70 @@
   --background: #370906;
   --active: #FED800;
   --inactive: #D7CECD;
+  --error: red;   /* What color to use? */
 }
+
+/* ----- Tipography ----- */
+
+@font-face {
+  font-family: 'EuclidSquare-Light';
+  src:
+  url('../public/fonts/euclidSquareLight.otf') format('opentype'),
+  url('../public/fonts/euclidSquareLight.eot') format('eot'),
+  url('../public/fonts/euclidSquareLight.woff') format('woff'), 
+  url('../public/fonts/euclidSquareLight.ttf') format('truetype'),
+  url('../public/fonts/euclidSquareLight.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EuclidSquare-SemiBold';
+  src:
+  url('../public/fonts/euclidSquareSemiBold.otf') format('opentype'),
+  url('../public/fonts/euclidSquareSemiBold.eot') format('eot'),
+  url('../public/fonts/euclidSquareSemiBold.woff') format('woff'), 
+  url('../public/fonts/euclidSquareSemiBold.ttf') format('truetype'),
+  url('../public/fonts/euclidSquareSemiBold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EuclidSquare-Bold';
+  src:
+  url('../public/fonts/euclidSquareBold.otf') format('opentype'),
+  url('../public/fonts/euclidSquareBold.eot') format('eot'),
+  url('../public/fonts/euclidSquareBold.woff') format('woff'), 
+  url('../public/fonts/euclidSquareBold.ttf') format('truetype'),
+  url('../public/fonts/euclidSquareBold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ----- General styles ----- */
+
+h1 {
+  font-family: 'EuclidSquare-Bold';
+}
+
+h2 {
+  font-family: 'EuclidSquare-SemiBold';
+}
+
+p {
+  font-family: 'EuclidSquare-Light';
+}
+
+span {
+  font-family: 'EuclidSquare-Light';
+}
+
+button {
+  background-color: aqua;
+}
+
+/* ----- Other styles ----- */
 
 .active {
   color: var(--active);
@@ -12,66 +75,22 @@
   color: var(--inactive)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Tipography */
-
-/* @font-face {
-  font-family: 'Avenir_LT_Medium';
-  src:
-  url('css/fonts/avenir_lt_medium.otf') format('opentype'),
-  url('css/fonts/avenir_lt_medium.eot') format('eot'),
-  url('css/fonts/avenir_lt_medium.woff') format('woff'), 
-  url('css/fonts/avenir_lt_medium.ttf') format('truetype'),
-  url('css/fonts/avenir_lt_medium.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+.container {
+  padding: 15px 15px 0;
 }
 
-@font-face {
-  font-family: 'Avenir_LT_Medium';
-  src:
-  url('css/fonts/avenir_lt_medium.otf') format('opentype'),
-  url('css/fonts/avenir_lt_medium.eot') format('eot'),
-  url('css/fonts/avenir_lt_medium.woff') format('woff'), 
-  url('css/fonts/avenir_lt_medium.ttf') format('truetype'),
-  url('css/fonts/avenir_lt_medium.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+.headline {
+  background-color: green;
 }
 
-@font-face {
-  font-family: 'Avenir_LT_Medium';
-  src:
-  url('css/fonts/avenir_lt_medium.otf') format('opentype'),
-  url('css/fonts/avenir_lt_medium.eot') format('eot'),
-  url('css/fonts/avenir_lt_medium.woff') format('woff'), 
-  url('css/fonts/avenir_lt_medium.ttf') format('truetype'),
-  url('css/fonts/avenir_lt_medium.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+.loading {
+  background-color: red;
 }
 
+.error-message {
+  color: var(--error)
+}
 
-
-
-h1{
-  font-family: 'Avenir_LT_Medium';
-} */
+.form {
+  background-color: blue;
+}

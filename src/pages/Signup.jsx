@@ -5,7 +5,6 @@ import { AuthContext } from '../context/auth.context';
 function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  /* const [name, setName] = useState(''); */
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { signup } = useContext(AuthContext);
 
@@ -13,16 +12,11 @@ function Signup() {
 
   const handleEmail = e => setEmail(e.target.value);
   const handlePassword = e => setPassword(e.target.value);
-  /*   const handleName = e => setName(e.target.value); */
 
   const handleSignupSubmit = e => {
     e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email, password /* , name  */ };
+    const requestBody = { email, password };
 
-    // Make an axios request to the API
-    // If POST request is successful redirect to login page
-    // If the request resolves with an error, set the error message in the state``
     signup(requestBody)
       .then(() => {
         navigate('/login');
@@ -34,7 +28,7 @@ function Signup() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="container">
       <h1>Welcome to Buddy Films</h1>
       <p>
         Hey movie lover!
@@ -46,9 +40,6 @@ function Signup() {
 
         <label>Password</label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
-
-        {/* <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} /> */}
 
         <button type="submit">Sign Up</button>
       </form>
