@@ -58,17 +58,27 @@ function Watchlist() {
                 <p>{watchlist.movie.buddy}</p>
                 {watchlist.movie.rating === 1 && (
                   <>
-                    <StarActive /> <StarActive /> <Star />
+                    <StarActive /> <StarActive /> <Star /> <Star /> <Star />
                   </>
                 )}
                 {watchlist.movie.rating === 2 && (
                   <>
-                    <StarActive /> <StarActive /> <Star />
+                    <StarActive /> <StarActive /> <Star /> <Star /> <Star />
                   </>
                 )}
                 {watchlist.movie.rating === 3 && (
                   <>
-                    <StarActive /> <StarActive /> <StarActive />
+                    <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
+                  </>
+                )}
+                {watchlist.movie.rating === 4 && (
+                  <>
+                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+                  </>
+                )}
+                {watchlist.movie.rating === 5 && (
+                  <>
+                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
                   </>
                 )}
               </Link>

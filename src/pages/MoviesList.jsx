@@ -77,17 +77,27 @@ function MoviesList() {
                 <p>by {movie.buddy}</p>
                 {movie.rating === 1 && (
                   <>
-                    <StarActive /> <Star /> <Star />
+                    <StarActive /> <Star /> <Star /> <Star /> <Star />
                   </>
                 )}
                 {movie.rating === 2 && (
                   <>
-                    <StarActive /> <StarActive /> <Star />
+                    <StarActive /> <StarActive /> <Star /> <Star /> <Star />
                   </>
                 )}
                 {movie.rating === 3 && (
                   <>
-                    <StarActive /> <StarActive /> <StarActive />
+                    <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
+                  </>
+                )}
+                {movie.rating === 4 && (
+                  <>
+                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+                  </>
+                )}
+                {movie.rating === 5 && (
+                  <>
+                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
                   </>
                 )}
               </Link>

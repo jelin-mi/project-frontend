@@ -54,20 +54,30 @@ function MovieDetail() {
           <p>Buddy: {movie.buddy}</p>
           {movie.rating === 1 && (
             <>
-              <StarActive /> <Star /> <Star />
+              <StarActive /> <Star /> <Star /> <Star /> <Star />
             </>
           )}
           {movie.rating === 2 && (
             <>
-              <StarActive /> <StarActive /> <Star />
+              <StarActive /> <StarActive /> <Star /> <Star /> <Star />
             </>
           )}
           {movie.rating === 3 && (
             <>
-              <StarActive /> <StarActive /> <StarActive />
+              <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
             </>
           )}
-          {movie.owner === user._id && <Link to={`/movies/${movie._id}/edit`}>Edit</Link>}
+          {movie.rating === 4 && (
+            <>
+              <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+            </>
+          )}
+          {movie.rating === 5 && (
+            <>
+              <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
+            </>
+          )}
+          {movie.owner === user._id && <Link to={`/movies/${movie._id}/edit`}>Edit film</Link>}
           <button onClick={() => handleOnClick(movie._id)}>watchlist 👍</button>
         </div>
       </div>

@@ -87,22 +87,22 @@ function MovieCreate() {
             <label>Synopsis</label>
             <input type="text" name="synopsis" value={synopsis} onChange={handleSynopsis} />
           </div>
-        {/*   <div className="label-input">
+          {/*   <div className="label-input">
             <label>Rating</label>
             <input type="number" name="rating" value={rating} onChange={handleRating} placeholder="1, 2 or 3" />
           </div> */}
 
- <div>
-        {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
-        {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}
-        {rating > 2 ? <StarActive onClick={() => setRating(2)} /> : <Star onClick={() => setRating(3)}/>}
-      </div>
+          <div>
+            {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
+            {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}
+            {rating > 2 ? <StarActive onClick={() => setRating(2)} /> : <Star onClick={() => setRating(3)} />}
+            {rating > 3 ? <StarActive onClick={() => setRating(3)} /> : <Star onClick={() => setRating(4)} />}
+            {rating > 4 ? <StarActive onClick={() => setRating(4)} /> : <Star onClick={() => setRating(5)} />}
+          </div>
 
-
-          <button type="submit">Add new movie</button>
+          <button type="submit">Add</button>
         </form>
       </div>{' '}
-     
       <Navbar />
     </>
   );

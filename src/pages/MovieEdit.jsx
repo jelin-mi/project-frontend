@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import apiService from '../services/api.service';
+import { ReactComponent as Star } from '../../src/assets/star.svg';
+import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 
 function MovieEdit() {
   const { id } = useParams();
@@ -12,8 +14,9 @@ function MovieEdit() {
     channel: '',
     buddy: '',
     synopsis: '',
-    rating: '',
+    /* rating: '', */
   });
+  const [rating, setRating] = useState(0);
 
   const navigate = useNavigate();
 
@@ -84,12 +87,20 @@ function MovieEdit() {
             <label>Synopsis</label>
             <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
-          <div className="label-input">
+          {/* <div className="label-input">
             <label>Rating</label>
             <input type="number" name="rating" min="1" max="3" value={movie.rating} onChange={handleOnChange} />
+          </div> */}
+
+          <div>
+            {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
+            {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}
+            {rating > 2 ? <StarActive onClick={() => setRating(2)} /> : <Star onClick={() => setRating(3)} />}
+            {rating > 3 ? <StarActive onClick={() => setRating(3)} /> : <Star onClick={() => setRating(4)} />}
+            {rating > 4 ? <StarActive onClick={() => setRating(4)} /> : <Star onClick={() => setRating(5)} />}
           </div>
 
-          <button type="submit">Edit film</button>
+          <button type="submit">Save</button>
         </form>
       </div>
       <Navbar />
