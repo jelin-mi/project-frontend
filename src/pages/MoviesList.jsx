@@ -5,8 +5,9 @@ import Navbar from '../components/Navbar/Navbar';
 import Search from '../components/Search/Search';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlist.svg';
+import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
+/* import Back from '../components/Back'; */
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -69,7 +70,11 @@ function MoviesList() {
   return (
     <>
       <div className="container">
+      <div className='headline'>
+        {/* <Back /> */}
         <h1>BuddyFilms list</h1>
+      </div>
+      
         <Search onFilter={onFilter} handleReset={handleReset} />
         <p className="error-message">{errorMessage}</p>
         <p className="info-message">{phrase}</p>

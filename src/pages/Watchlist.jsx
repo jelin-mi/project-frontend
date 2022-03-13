@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar/Navbar';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
+import { ReactComponent as Remove } from '../../src/assets/remove.svg';
 import wheel from '../../src/assets/wheel.png';
 
 function Watchlist() {
@@ -93,7 +94,7 @@ function Watchlist() {
                   </>
                 )}
               </Link>
-              <button onClick={() => handleOnClick(watchlist._id)}>remove</button>
+              <div onClick={() => handleOnClick(watchlist._id)}><Remove /></div>
             </div>
           );
         })}
