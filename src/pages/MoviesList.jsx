@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Search from '../components/Search/Search';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistActive.svg';
+import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlist.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 
 function MoviesList() {

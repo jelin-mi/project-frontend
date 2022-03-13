@@ -4,10 +4,12 @@ import apiService from '../services/api.service';
 import Navbar from '../components/Navbar/Navbar';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
+import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 import wheel from '../../src/assets/wheel.png';
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getWhatchlist = () => {
     apiService
@@ -22,6 +24,7 @@ function Watchlist() {
 
   useEffect(() => {
     getWhatchlist();
+    setIsLoading(false);
   }, []);
 
   const handleOnClick = watchlistId => {
@@ -36,6 +39,14 @@ function Watchlist() {
       });
   };
   console.log(watchlist);
+
+   if (isLoading)
+     return (
+       <div className="loading">
+         <Loading />
+       </div>
+     );
+
   return (
     <>
       <div className="container">
