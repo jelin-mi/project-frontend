@@ -1,16 +1,20 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+import apiService from '../services/api.service';
 import Navbar from '../components/Navbar/Navbar';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import { AuthContext } from '../context/auth.context';
-import apiService from '../services/api.service';
+import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistActive.svg';
+import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 
 function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);
   const [movie, setMovie] = useState({});
   const { id } = useParams();
   const { user } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState();
+  const [phrase, setPhrase] = useState();
 
   useEffect(() => {
     apiService
@@ -32,14 +36,24 @@ function MovieDetail() {
         movieId: movieId,
       })
       .then(response => {
+        setPhrase('Added correctly to your Watchlist');
+        setTimeout(() => setPhrase(''), 2000);
         console.log(response.data);
       })
       .catch(err => {
         console.log(err);
+        setPhrase('');
+        setErrorMessage(err.response.data.message);
+        setTimeout(() => setErrorMessage(''), 2000);
       });
   };
 
-  if (isLoading) return null;
+  if (isLoading)
+    return (
+      <div className="loading">
+        <Loading />
+      </div>
+    );
 
   return (
     <>
@@ -78,8 +92,12 @@ function MovieDetail() {
             </>
           )}
           {movie.owner === user._id && <Link to={`/movies/${movie._id}/edit`}>Edit film</Link>}
-          <button onClick={() => handleOnClick(movie._id)}>watchlist 👍</button>
+          <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
+            <WatchlistIcon />
+          </div>
         </div>
+        <p className="error-message">{errorMessage}</p>
+        <p className="info-message">{phrase}</p>
       </div>
       <Navbar />
     </>
