@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
-import { ReactComponent as Star } from '../../src/assets/star.svg';
-import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Navbar from '../components/Navbar/Navbar';
 import Search from '../components/Search/Search';
+import { ReactComponent as Star } from '../../src/assets/star.svg';
+import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
+import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistActive.svg';
+import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [errorMsg, setErrorMsg] = useState();
+  const [errorMessage, setErrorMessage] = useState();
   const [phrase, setPhrase] = useState();
 
   // List of all movies
@@ -32,17 +34,15 @@ function MoviesList() {
         movieId: movieId,
       })
       .then(response => {
-        setPhrase('Added correctly');
+        setPhrase('Added correctly to your Watchlist');
         setTimeout(() => setPhrase(''), 2000);
-
-        setErrorMsg('');
         console.log(response.data);
       })
       .catch(err => {
         console.log(err);
         setPhrase('');
-
-        setErrorMsg(err.response.data.message);
+        setErrorMessage(err.response.data.message);
+        setTimeout(() => setErrorMessage(''), 2000);
       });
   };
 
@@ -59,49 +59,56 @@ function MoviesList() {
     location.reload();
   };
 
-  if (
-    isLoading) return <div><Star/></div>;
+  if (isLoading)
+    return (
+      <div className="loading">
+        <Loading />
+      </div>
+    );
 
   return (
     <>
       <div className="container">
         <h1>BuddyFilms list</h1>
         <Search onFilter={onFilter} handleReset={handleReset} />
-        <div>{errorMsg}</div>
-        <div>{phrase}</div>
+        <p className="error-message">{errorMessage}</p>
+        <p className="info-message">{phrase}</p>
         {movies.map(movie => {
           return (
             <div key={movie._id}>
               <Link to={`/movies/${movie._id}`}>
                 <h2>{movie.title}</h2>
                 <p>by {movie.buddy}</p>
-                {movie.rating === 1 && (
-                  <>
-                    <StarActive /> <Star /> <Star /> <Star /> <Star />
-                  </>
-                )}
-                {movie.rating === 2 && (
-                  <>
-                    <StarActive /> <StarActive /> <Star /> <Star /> <Star />
-                  </>
-                )}
-                {movie.rating === 3 && (
-                  <>
-                    <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
-                  </>
-                )}
-                {movie.rating === 4 && (
-                  <>
-                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
-                  </>
-                )}
-                {movie.rating === 5 && (
-                  <>
-                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
-                  </>
-                )}
               </Link>
-              <button onClick={() => handleOnClick(movie._id)}>watchlist 👍</button>
+              {movie.rating === 1 && (
+                <>
+                  <StarActive /> <Star /> <Star /> <Star /> <Star />
+                </>
+              )}
+              {movie.rating === 2 && (
+                <>
+                  <StarActive /> <StarActive /> <Star /> <Star /> <Star />
+                </>
+              )}
+              {movie.rating === 3 && (
+                <>
+                  <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
+                </>
+              )}
+              {movie.rating === 4 && (
+                <>
+                  <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+                </>
+              )}
+              {movie.rating === 5 && (
+                <>
+                  <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
+                </>
+              )}
+
+              <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
+                <WatchlistIcon />
+              </div>
             </div>
           );
         })}
