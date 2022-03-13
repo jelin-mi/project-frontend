@@ -84,7 +84,11 @@ button {
 }
 
 .loading {
-  background-color: red;
+  background-color: var(--background);
+}
+
+.info-message {
+  color: green;
 }
 
 .error-message {
@@ -93,4 +97,8 @@ button {
 
 .form {
   background-color: blue;
+}
+
+.watchlist-icon {
+  background-color: darkslateblue;
 }
