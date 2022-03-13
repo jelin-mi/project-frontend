@@ -54,7 +54,7 @@ function MovieDetail() {
           <p>Buddy: {movie.buddy}</p>
           {movie.rating === 1 && (
             <>
-              <StarActive /> <StarActive /> <Star />
+              <StarActive /> <Star /> <Star />
             </>
           )}
           {movie.rating === 2 && (

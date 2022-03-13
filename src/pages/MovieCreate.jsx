@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import apiService from '../services/api.service';
+import { ReactComponent as Star } from '../../src/assets/star.svg';
+import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 
 function MovieCreate() {
   const [title, setTitle] = useState('');
@@ -10,19 +12,19 @@ function MovieCreate() {
   const [channel, setChannel] = useState('');
   const [buddy, setBuddy] = useState('');
   const [synopsis, setSynopsis] = useState('');
-  const [rating, setRating] = useState();
+  const [rating, setRating] = useState(0);
 
-  const handleTitle = (e) => setTitle(e.target.value);
-  const handleYear = (e) => setYear(e.target.value);
-  const handleDirector = (e) => setDirector(e.target.value);
-  const handleChannel = (e) => setChannel(e.target.value);
-  const handleBuddy = (e) => setBuddy(e.target.value);
-  const handleSynopsis = (e) => setSynopsis(e.target.value);
-  const handleRating = (e) => setRating(e.target.value);
+  const handleTitle = e => setTitle(e.target.value);
+  const handleYear = e => setYear(e.target.value);
+  const handleDirector = e => setDirector(e.target.value);
+  const handleChannel = e => setChannel(e.target.value);
+  const handleBuddy = e => setBuddy(e.target.value);
+  const handleSynopsis = e => setSynopsis(e.target.value);
+  /* const handleRating = e => setRating(e.target.value); */
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     const newMovie = {
       title,
@@ -54,8 +56,7 @@ function MovieCreate() {
       .catch(err => {
         console.log(err);
       });
-    }
-
+  };
 
   return (
     <>
@@ -86,14 +87,22 @@ function MovieCreate() {
             <label>Synopsis</label>
             <input type="text" name="synopsis" value={synopsis} onChange={handleSynopsis} />
           </div>
-          <div className="label-input">
+        {/*   <div className="label-input">
             <label>Rating</label>
             <input type="number" name="rating" value={rating} onChange={handleRating} placeholder="1, 2 or 3" />
-          </div>
+          </div> */}
+
+ <div>
+        {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
+        {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}
+        {rating > 2 ? <StarActive onClick={() => setRating(2)} /> : <Star onClick={() => setRating(3)}/>}
+      </div>
+
 
           <button type="submit">Add new movie</button>
         </form>
-      </div>
+      </div>{' '}
+     
       <Navbar />
     </>
   );
