@@ -56,7 +56,6 @@ function Watchlist() {
           <Back />
           <h1>My Watchlist</h1>
         </div>
-
         {watchlist.length === 0 && (
           <>
             <p>

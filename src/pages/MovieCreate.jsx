@@ -7,57 +7,67 @@ import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Back from '../components/Back';
 
 function MovieCreate() {
-  const [title, setTitle] = useState('');
-  const [year, setYear] = useState();
-  const [director, setDirector] = useState('');
-  const [channel, setChannel] = useState('');
-  const [buddy, setBuddy] = useState('');
-  const [synopsis, setSynopsis] = useState('');
-  const [rating, setRating] = useState(0);
+   const [movie, setMovie] = useState({
+     title: '',
+     year: '',
+     country: '',
+     director: '',
+     channel: '',
+     buddy: '',
+     synopsis: '',
+   });
+   const [rating, setRating] = useState(0);
+   const [imageUrl, setImageUrl] = useState('');
 
-  const handleTitle = e => setTitle(e.target.value);
-  const handleYear = e => setYear(e.target.value);
-  const handleDirector = e => setDirector(e.target.value);
-  const handleChannel = e => setChannel(e.target.value);
-  const handleBuddy = e => setBuddy(e.target.value);
-  const handleSynopsis = e => setSynopsis(e.target.value);
-  /* const handleRating = e => setRating(e.target.value); */
+   const navigate = useNavigate();
 
-  const navigate = useNavigate();
+   const handleOnChange = e => {
+     setMovie(prev => {
+       return {
+         ...prev,
+         [e.target.name]: e.target.value,
+       };
+     });
+   };
+
+  const handleFileUpload = e => {
+    const uploadData = new FormData();
+    uploadData.append('imageUrl', e.target.files[0]);
+    apiService
+      .uploadImage(uploadData)
+      .then(response => {
+        console.log(response.data);
+        setImageUrl(response.data.fileUrl);
+      })
+      .catch(err => console.log('Error while uploading the file: ', err));
+  };
+  console.log('image', imageUrl);
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newMovie = {
-      title,
-      year,
-      director,
-      channel,
-      buddy,
-      synopsis,
-      rating,
-    };
-
     apiService
-      .createMovie(newMovie)
-      /*  .addToWatchlist({
-        movieId: movieId,
-      }) */
+      .createMovie({
+        title: movie.title,
+        imageUrl: imageUrl,
+        year: movie.year,
+        country: movie.country,
+        director: movie.director,
+        channel: movie.channel,
+        buddy: movie.buddy,
+        synopsis: movie.synopsis,
+        rating: rating,
+      })
       .then(response => {
         console.log(response);
-
-        setTitle('');
-        setYear();
-        setDirector('');
-        setChannel('');
-        setBuddy('');
-        setSynopsis('');
-        setRating();
+        console.log(response.data);
+        setMovie('');
         navigate('/movies');
       })
       .catch(err => {
         console.log(err);
       });
   };
+  
 
   return (
     <>
@@ -70,32 +80,36 @@ function MovieCreate() {
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
             <label>Title</label>
-            <input type="text" name="name" value={title} onChange={handleTitle} />
+            <input type="text" name="title" value={movie.title} onChange={handleOnChange} />
+          </div>
+          <div className="label-input">
+            <label>Image</label>
+            <input type="file" onChange={e => handleFileUpload(e)} />
           </div>
           <div className="label-input">
             <label>Year</label>
-            <input type="number" name="year" value={year} onChange={handleYear} />
+            <input type="number" name="year" value={movie.year} onChange={handleOnChange} />
+          </div>
+          <div className="label-input">
+            <label>Country</label>
+            <input type="text" name="country" value={movie.country} onChange={handleOnChange} />
           </div>
           <div className="label-input">
             <label>Director</label>
-            <input type="text" name="director" value={director} onChange={handleDirector} />
+            <input type="text" name="director" value={movie.director} onChange={handleOnChange} />
           </div>
           <div className="label-input">
             <label>Channel</label>
-            <input type="text" name="channel" value={channel} onChange={handleChannel} />
+            <input type="text" name="channel" value={movie.channel} onChange={handleOnChange} />
           </div>
           <div className="label-input">
             <label>Buddy</label>
-            <input type="text" name="buddy" value={buddy} onChange={handleBuddy} />
+            <input type="text" name="buddy" value={movie.buddy} onChange={handleOnChange} />
           </div>
           <div className="label-input">
             <label>Synopsis</label>
-            <input type="text" name="synopsis" value={synopsis} onChange={handleSynopsis} />
+            <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
-          {/*   <div className="label-input">
-            <label>Rating</label>
-            <input type="number" name="rating" value={rating} onChange={handleRating} placeholder="1, 2 or 3" />
-          </div> */}
 
           <div>
             {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}

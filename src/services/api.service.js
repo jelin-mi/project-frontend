@@ -71,6 +71,11 @@ class ApiService {
   getProfile = () => {
     return this.api.get('/api/profile');
   };
+
+  // Image
+  uploadImage = file => {
+    return this.api.post('/api/movies/upload', file);
+  };
 }
 
 // Create one instance (object) of the service

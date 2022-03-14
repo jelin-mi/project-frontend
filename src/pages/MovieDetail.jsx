@@ -8,6 +8,7 @@ import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 import Back from '../components/Back';
+/* import imageDefault from '../assets/popcorn.png'; */
 
 function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);
@@ -56,6 +57,8 @@ function MovieDetail() {
       </div>
     );
 
+  console.log(movie.imageUrl);
+
   return (
     <>
       <div className="container">
@@ -63,10 +66,13 @@ function MovieDetail() {
           <Back />
           <h1>Film</h1>
         </div>
-
         <div key={movie._id}>
           <h2>{movie.title}</h2>
+          <img src={movie.imageUrl} alt="pic" />
+          {/* {movie.imageUrl ? <img src={movie.imageUrl} alt="movie" /> : <img src={imageDefault} alt="" />} */}
+        
           <p>Year: {movie.year}</p>
+          <p>Country: {movie.country}</p>
           <p>Director: {movie.director}</p>
           <p>Synopsis: {movie.synopsis}</p>
           <p>Channel: {movie.channel}</p>

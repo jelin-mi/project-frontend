@@ -11,13 +11,14 @@ function MovieEdit() {
   const [movie, setMovie] = useState({
     title: '',
     year: '',
+    country: '',
     director: '',
     channel: '',
     buddy: '',
     synopsis: '',
-    /* rating: '', */
   });
   const [rating, setRating] = useState(0);
+  const [imageUrl, setImageUrl] = useState('');
 
   const navigate = useNavigate();
 
@@ -26,6 +27,8 @@ function MovieEdit() {
     .getOneMovie(id)
     .then(response => {
       setMovie(response.data);
+      setImageUrl(response.data);
+      console.log(response.data);
     });
   }, []);
 
@@ -34,21 +37,39 @@ function MovieEdit() {
       return {
         ...prev,
         [e.target.name]: e.target.value,
+        
       };
     });
   };
+
+  const handleFileUpload = e => {
+    const uploadData = new FormData();
+    uploadData.append('imageUrl', e.target.files[0]);
+    apiService
+      .uploadImage(uploadData)
+      .then(response => {
+        console.log(response.data);
+        setImageUrl(response.data.fileUrl);
+        console.log(response.data.fileUrl);
+      })
+      .catch(err => console.log(err));
+  };
+  console.log('image', imageUrl);
+
 
   const handleSubmit = e => {
     e.preventDefault();
     apiService
       .editMovie(movie._id, {
         title: movie.title,
+        imageUrl: imageUrl,
         year: movie.year,
+        country: movie.country,
         director: movie.director,
         channel: movie.channel,
         buddy: movie.buddy,
         synopsis: movie.synopsis,
-        rating: movie.rating,
+        rating: rating,
       })
       .then(response => {
         console.log(response);
@@ -66,15 +87,22 @@ function MovieEdit() {
           <Back />
           <h2>Movie edit</h2>
         </div>
-
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
             <label>Title</label>
             <input type="text" name="title" value={movie.title} onChange={handleOnChange} />
           </div>
           <div className="label-input">
+            <label>Image</label>
+            <input type="file" name="imageUrl" onChange={handleFileUpload} />
+          </div>
+          <div className="label-input">
             <label>Year</label>
             <input type="number" name="year" value={movie.year} onChange={handleOnChange} />
+          </div>
+          <div className="label-input">
+            <label>Country</label>
+            <input type="text" name="country" value={movie.country} onChange={handleOnChange} />
           </div>
           <div className="label-input">
             <label>Director</label>
@@ -92,10 +120,6 @@ function MovieEdit() {
             <label>Synopsis</label>
             <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
-          {/* <div className="label-input">
-            <label>Rating</label>
-            <input type="number" name="rating" min="1" max="3" value={movie.rating} onChange={handleOnChange} />
-          </div> */}
 
           <div>
             {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
