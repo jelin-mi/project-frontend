@@ -7,6 +7,7 @@ import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
+import Back from '../components/Back';
 
 function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,7 +59,11 @@ function MovieDetail() {
   return (
     <>
       <div className="container">
-        <h1>Film</h1>
+        <div className="headline">
+          <Back />
+          <h1>Film</h1>
+        </div>
+
         <div key={movie._id}>
           <h2>{movie.title}</h2>
           <p>Year: {movie.year}</p>

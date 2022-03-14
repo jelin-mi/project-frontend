@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar/Navbar';
 import apiService from '../services/api.service';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
+import Back from '../components/Back';
 
 function MovieCreate() {
   const [title, setTitle] = useState('');
@@ -61,7 +62,11 @@ function MovieCreate() {
   return (
     <>
       <div className="container">
-        <h2>Add new film</h2>
+        <div className="headline">
+          <Back />
+          <h2>Add new film</h2>
+        </div>
+
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
             <label>Title</label>

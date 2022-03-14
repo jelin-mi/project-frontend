@@ -7,7 +7,7 @@ import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
-/* import Back from '../components/Back'; */
+import Back from '../components/Back';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -71,7 +71,7 @@ function MoviesList() {
     <>
       <div className="container">
       <div className='headline'>
-        {/* <Back /> */}
+        <Back />
         <h1>BuddyFilms list</h1>
       </div>
       

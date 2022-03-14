@@ -7,6 +7,7 @@ import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 import { ReactComponent as Remove } from '../../src/assets/remove.svg';
 import wheel from '../../src/assets/wheel.png';
+import Back from '../components/Back';
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState([]);
@@ -51,7 +52,11 @@ function Watchlist() {
   return (
     <>
       <div className="container">
-        <h1>My Watchlist</h1>
+        <div className="headline">
+          <Back />
+          <h1>My Watchlist</h1>
+        </div>
+
         {watchlist.length === 0 && (
           <>
             <p>
@@ -94,7 +99,9 @@ function Watchlist() {
                   </>
                 )}
               </Link>
-              <div onClick={() => handleOnClick(watchlist._id)}><Remove /></div>
+              <div onClick={() => handleOnClick(watchlist._id)}>
+                <Remove />
+              </div>
             </div>
           );
         })}
