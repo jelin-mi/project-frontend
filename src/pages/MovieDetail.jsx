@@ -70,7 +70,7 @@ function MovieDetail() {
           <h2>{movie.title}</h2>
           {/* <img src={movie.imageUrl} alt="pic" /> */}
           {movie.imageUrl ? <img src={movie.imageUrl} alt="pic" /> : <img src={imageDefault} alt="" />}  {/*  //TODO */}
-        
+    
           <p>Year: {movie.year}</p>
           <p>Country: {movie.country}</p>
           <p>Director: {movie.director}</p>

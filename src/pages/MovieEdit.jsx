@@ -25,8 +25,9 @@ function MovieEdit() {
   useEffect(() => {
     apiService.getOneMovie(id).then(response => {
       setMovie(response.data);
-      setImageUrl(response.data);
+      setImageUrl(response.data.fileUrl);
       console.log(response.data);
+      console.log(response.data.fileUrl);
     });
   }, []);
 
@@ -53,6 +54,7 @@ function MovieEdit() {
       .catch(err => console.log(err));
   };
   console.log('image', imageUrl);
+  
 
 
   const handleSubmit = e => {

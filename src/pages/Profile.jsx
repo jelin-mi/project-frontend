@@ -77,7 +77,7 @@ function Profile() {
 
         {/* //TODO if X > 10 --> 'great job' */}
 
-        <p>You have already seen {watchlist.length} movies.</p>
+        <p>You have {watchlist.length} movies.</p>
 
         <button onClick={logOutUser}>Logout</button>
       </div>
