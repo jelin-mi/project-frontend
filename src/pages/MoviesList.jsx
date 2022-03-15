@@ -112,6 +112,7 @@ function MoviesList() {
               )}
 
               <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
+              {/* //TODO if para cambiar el ícono de Watchlist */}
                 <WatchlistIcon />
               </div>
             </div>

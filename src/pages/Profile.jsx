@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import apiService from "../services/api.service";
 import Back from '../components/Back';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
+import { ReactComponent as Logout } from '../../src/assets/logout.svg';
 
 function Profile() {
   const [profile, setProfile] = useState({});
@@ -69,17 +70,14 @@ function Profile() {
         <div className="headline">
           <Back />
           <h1>User profile</h1>
+          <Logout onClick={logOutUser} />
         </div>
         <p>{profile.email}</p>
-        <p>You have already uploaded {movies.length} movies.</p>
-        {movies.length <= 5 && <p>You can make better.</p>}
-        {movies.length > 5 && <p>Seems you like movies.</p>}
-
+        <p>There are {movies.length} movies you can choose from.</p>
         {/* //TODO if X > 10 --> 'great job' */}
-
-        <p>You have {watchlist.length} movies.</p>
-
-        <button onClick={logOutUser}>Logout</button>
+        <p>You have {watchlist.length} movies in your Watchlist to watch.</p>
+        {watchlist.length <= 5 && <p>You can make better.</p>}
+        {watchlist.length > 5 && <p>Seems you have a lot to watch.</p>}
       </div>
       <Navbar />
     </>
