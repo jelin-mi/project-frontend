@@ -60,7 +60,6 @@ function MovieCreate() {
       .then(response => {
         console.log(response);
         console.log(response.data);
-        setMovie('');
         navigate('/movies');
       })
       .catch(err => {
@@ -84,7 +83,7 @@ function MovieCreate() {
           </div>
           <div className="label-input">
             <label>Image</label>
-            <input type="file" onChange={e => handleFileUpload(e)} />
+            <input type="file" name="imageUrl" onChange={e => handleFileUpload(e)} />
           </div>
           <div className="label-input">
             <label>Year</label>

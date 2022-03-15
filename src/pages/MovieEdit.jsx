@@ -23,9 +23,7 @@ function MovieEdit() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    apiService
-    .getOneMovie(id)
-    .then(response => {
+    apiService.getOneMovie(id).then(response => {
       setMovie(response.data);
       setImageUrl(response.data);
       console.log(response.data);

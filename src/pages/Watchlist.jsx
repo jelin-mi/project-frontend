@@ -49,6 +49,9 @@ function Watchlist() {
        </div>
      );
 
+ 
+  // console.log(watchlist.movie._id);
+
   return (
     <>
       <div className="container">
@@ -67,6 +70,7 @@ function Watchlist() {
           </>
         )}
         {watchlist.map(watchlist => {
+          console.log('wathclist', watchlist)
           return (
             <div key={watchlist._id}>
               <Link to={`/movies/${watchlist.movie._id}`}>
