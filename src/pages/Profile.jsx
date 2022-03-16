@@ -5,13 +5,14 @@ import apiService from "../services/api.service";
 import Back from '../components/Back';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 import { ReactComponent as Logout } from '../../src/assets/logout.svg';
+import { Link } from "react-router-dom";
 
 function Profile() {
   const [profile, setProfile] = useState({});
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { /* isLoggedIn, */ /* user, */ logOutUser } = useContext(AuthContext); //TODO for movies and watchlist too? to pass all the details and do not have to run all this code...
+  const { /* isLoggedIn, */ /* user, */ logOutUser } = useContext(AuthContext);
 
   // List of all movies
   useEffect(() => {
@@ -69,15 +70,22 @@ function Profile() {
       <div className="container">
         <div className="headline">
           <Back />
-          <h1>User profile</h1>
+          <h1>Your profile</h1>
           <Logout onClick={logOutUser} />
         </div>
+        <h2>Email</h2>
         <p>{profile.email}</p>
+        <h2>Status</h2>
         <p>There are {movies.length} movies you can choose from.</p>
+        <button><Link to={'/movies'}>Check movies</Link></button>
         {/* //TODO if X > 10 --> 'great job' */}
-        <p>You have {watchlist.length} movies in your Watchlist to watch.</p>
-        {watchlist.length <= 5 && <p>You can make better.</p>}
-        {watchlist.length > 5 && <p>Seems you have a lot to watch.</p>}
+        <p>You have {watchlist.length} movies in your Watchlist.</p>
+        {/* {watchlist.length <= 5 && <p>You can make better.</p>} */}
+        {watchlist.length < 5 && 
+        <>
+          <p>Seems you have few movies to watch.</p><br/><button><Link to={'/watchlist'}>See Watchlist</Link></button>
+        </>}
+        <p>Not in a mood for listed movies? Ask your friend for a recomendation and add a new movie to BuddyFilms!</p>
       </div>
       <Navbar />
     </>

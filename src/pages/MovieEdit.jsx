@@ -73,7 +73,7 @@ function MovieEdit() {
       })
       .then(response => {
         console.log(response);
-        navigate('/movies');
+        navigate(`/movies/${movie._id}`);
       })
       .catch(err => {
         console.log(err);

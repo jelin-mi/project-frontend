@@ -49,8 +49,6 @@ function Watchlist() {
       </div>
     );
 
-  // console.log(watchlist.movie._id);
-
   return (
     <>
       <div className="container">
