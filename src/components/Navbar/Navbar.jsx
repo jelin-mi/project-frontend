@@ -7,33 +7,34 @@ import { ReactComponent as Profile } from '../../assets/profile.svg';
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <div className="item">
-        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/watchlist">
-          <Watchlist /> <span>Watchlist</span>
-        </NavLink>
-      </div>
-
-      <div className="item">
-        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies" end>
-          <Films />
-          <span>Films</span>
-        </NavLink>
-      </div>
-
-      <div className="item">
-        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies/add">
-          <New />
-          <span>New film</span> 
-        </NavLink>
-      </div>
-
-      <div className="item">
-        <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/profile">
-          <Profile /> <span>Profile</span>
-        </NavLink>
-      </div>
-    </nav>
+    <div className="navbar-bg">
+      <nav className="navbar">
+        {' '}
+        {/* //TODO  */}
+        <div className="item">
+          <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/watchlist">
+            <Watchlist /> <span>Watchlist</span>
+          </NavLink>
+        </div>
+        <div className="item">
+          <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies" end>
+            <Films />
+            <span>Films</span>
+          </NavLink>
+        </div>
+        <div className="item">
+          <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/movies/add">
+            <New />
+            <span>New film</span>
+          </NavLink>
+        </div>
+        <div className="item">
+          <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/profile">
+            <Profile /> <span>Profile</span>
+          </NavLink>
+        </div>
+      </nav>
+    </div>
   );
 }
 
