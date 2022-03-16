@@ -1,3 +1,27 @@
 .search {
-  background-color: red;
+  width: 100%;
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.search input {
+  background-color: #eee;
+  background-image: url('/src/assets/search.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 15px 15px; 
+  border: none;
+  padding: 15px 0 15px 45px;
+  width: calc(100% - 45px); /* //TODO */
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333; /* //TODO replace by variant */
+  font-family: 'EuclidSquare-Light';
+  opacity: 1;
+}
+
+.search div {
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }

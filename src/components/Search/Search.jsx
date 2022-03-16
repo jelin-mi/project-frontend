@@ -1,4 +1,5 @@
 import './Search.css';
+import { ReactComponent as Refresh } from '../../assets/refresh.svg';
 
 function Search({ onFilter, handleReset }) {
   const handleSearch = e => {
@@ -8,7 +9,10 @@ function Search({ onFilter, handleReset }) {
   return (
     <div className="search">
       <input type="text" placeholder="Search a movie..." onChange={handleSearch} />
-      <button onClick={handleReset}>Reset</button>
+
+      <div onClick={handleReset}>
+        <Refresh />
+      </div>
     </div>
   );
 }
