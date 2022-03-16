@@ -1,52 +1,69 @@
 :root {
   --background: #370906;
-  --active: #FED800;
-  --inactive: #D7CECD;
-  --error: red;   /* //TODO What color to use? */
+  --active: #fed800;
+  /*  --inactive: #d7cecd; */
+  --inactive: #fff;
+  --opacity: 0.8; /* //TODO */
+  --error: red; /* //TODO What color to use? */
 }
 
 /* ----- Tipography ----- */
 
 @font-face {
   font-family: 'EuclidSquare-Light';
-  src:
-  url('../public/fonts/euclidSquareLight.otf') format('opentype'),
-  url('../public/fonts/euclidSquareLight.eot') format('eot'),
-  url('../public/fonts/euclidSquareLight.woff') format('woff'), 
-  url('../public/fonts/euclidSquareLight.ttf') format('truetype'),
-  url('../public/fonts/euclidSquareLight.svg') format('svg');
+  src: url('../public/fonts/euclidSquareLight.otf') format('opentype'),
+    url('../public/fonts/euclidSquareLight.eot') format('eot'),
+    url('../public/fonts/euclidSquareLight.woff') format('woff'),
+    url('../public/fonts/euclidSquareLight.ttf') format('truetype'),
+    url('../public/fonts/euclidSquareLight.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'EuclidSquare-SemiBold';
-  src:
-  url('../public/fonts/euclidSquareSemiBold.otf') format('opentype'),
-  url('../public/fonts/euclidSquareSemiBold.eot') format('eot'),
-  url('../public/fonts/euclidSquareSemiBold.woff') format('woff'), 
-  url('../public/fonts/euclidSquareSemiBold.ttf') format('truetype'),
-  url('../public/fonts/euclidSquareSemiBold.svg') format('svg');
+  src: url('../public/fonts/euclidSquareSemiBold.otf') format('opentype'),
+    url('../public/fonts/euclidSquareSemiBold.eot') format('eot'),
+    url('../public/fonts/euclidSquareSemiBold.woff') format('woff'),
+    url('../public/fonts/euclidSquareSemiBold.ttf') format('truetype'),
+    url('../public/fonts/euclidSquareSemiBold.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'EuclidSquare-Bold';
-  src:
-  url('../public/fonts/euclidSquareBold.otf') format('opentype'),
-  url('../public/fonts/euclidSquareBold.eot') format('eot'),
-  url('../public/fonts/euclidSquareBold.woff') format('woff'), 
-  url('../public/fonts/euclidSquareBold.ttf') format('truetype'),
-  url('../public/fonts/euclidSquareBold.svg') format('svg');
+  src: url('../public/fonts/euclidSquareBold.otf') format('opentype'),
+    url('../public/fonts/euclidSquareBold.eot') format('eot'),
+    url('../public/fonts/euclidSquareBold.woff') format('woff'),
+    url('../public/fonts/euclidSquareBold.ttf') format('truetype'),
+    url('../public/fonts/euclidSquareBold.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 /* ----- General styles ----- */
 
+body {
+  /* //TODO */
+  font-family: 'EuclidSquare-Light';
+  font-size: 16px;
+  color: #333333; /* //TODO replace by variant */
+}
+
+.container {
+  padding: 35px 15px 0;
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
 h1 {
   font-family: 'EuclidSquare-Bold';
+  font-size: 25px;
+  color: var(--background);
+  padding-left: 20px;
 }
 
 h2 {
@@ -54,15 +71,24 @@ h2 {
 }
 
 p {
-  font-family: 'EuclidSquare-Light';
+  font-size: 16px;
+  line-height: 22px;
+  color: #333; /* //TODO replace by variant */
 }
 
-span {
-  font-family: 'EuclidSquare-Light';
+p a {
+  font-family: 'EuclidSquare-SemiBold';
+  color: #333; /* //TODO replace by variant */
 }
 
 button {
-  background-color: aqua;
+  background-color: aqua; /* //TODO replace by variant */
+}
+
+.back {
+  /* //TODO */
+  position: absolute;
+  left: 0;
 }
 
 /* ----- Other styles ----- */
@@ -72,15 +98,17 @@ button {
 }
 
 .inactive {
-  color: var(--inactive)
-}
-
-.container {
-  padding: 15px 15px 0;
+  color: var(--inactive);
+  opacity: var(--opacity);
 }
 
 .headline {
-  background-color: green;
+  /* //TODO */
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+  padding-bottom: 2em;
 }
 
 .loading {
@@ -88,17 +116,62 @@ button {
 }
 
 .info-message {
-  color: green;
+  color: green; /* //TODO replace by variant */
 }
 
 .error-message {
-  color: var(--error)
+  color: var(--error);
 }
 
 .form {
-  background-color: blue;
+  background-color: blue; /* //TODO replace by variant */
 }
 
-.watchlist-icon {
+/* .watchlist-icon {
   background-color: darkslateblue;
+} */
+
+/* ----- New style ----- */ /* //TODO organize by page name with comments */
+
+.item-movie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--background);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 17px 17px 14px;
+}
+
+.item-movie .icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-movie .info {
+  padding-right: 10px;
+}
+
+.item-movie .stars {
+  margin-right: 16px;
+  width: 125px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-movie a {
+  text-decoration: none;
+}
+
+.item-movie h2 {
+  color: #fff; /* //TODO replace by variant */
+  font-size: 18px;
+  padding-bottom: 3px;
+  line-height: 22px;
+}
+
+.item-movie p {
+  color: #fff; /* //TODO replace by variant */
+  font-size: 13px;
 }

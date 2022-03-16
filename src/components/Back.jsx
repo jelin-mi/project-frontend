@@ -4,7 +4,7 @@ import { ReactComponent as BackIcon } from '../../src/assets/back.svg';
 function Back() {
   const navigate = useNavigate();
   return (
-    <div onClick={() => navigate(-1)}>
+    <div className="back" onClick={() => navigate(-1)}> {/* //TODO  */}
       <BackIcon />
     </div>
   );

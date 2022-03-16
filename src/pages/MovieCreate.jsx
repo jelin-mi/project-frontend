@@ -7,28 +7,28 @@ import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Back from '../components/Back';
 
 function MovieCreate() {
-   const [movie, setMovie] = useState({
-     title: '',
-     year: '',
-     country: '',
-     director: '',
-     channel: '',
-     buddy: '',
-     synopsis: '',
-   });
-   const [rating, setRating] = useState(0);
-   const [imageUrl, setImageUrl] = useState('');
+  const [movie, setMovie] = useState({
+    title: '',
+    year: '',
+    country: '',
+    director: '',
+    channel: '',
+    buddy: '',
+    synopsis: '',
+  });
+  const [rating, setRating] = useState(0);
+  const [imageUrl, setImageUrl] = useState('');
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-   const handleOnChange = e => {
-     setMovie(prev => {
-       return {
-         ...prev,
-         [e.target.name]: e.target.value,
-       };
-     });
-   };
+  const handleOnChange = e => {
+    setMovie(prev => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
 
   const handleFileUpload = e => {
     const uploadData = new FormData();
@@ -66,14 +66,13 @@ function MovieCreate() {
         console.log(err);
       });
   };
-  
 
   return (
     <>
       <div className="container">
         <div className="headline">
           <Back />
-          <h2>Add new film</h2>
+          <h1>Add new film</h1> {/* //TODO  */}
         </div>
 
         <form onSubmit={handleSubmit} className="form">

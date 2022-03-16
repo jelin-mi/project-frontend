@@ -42,14 +42,13 @@ function Watchlist() {
   };
   console.log(watchlist);
 
-   if (isLoading)
-     return (
-       <div className="loading">
-         <Loading />
-       </div>
-     );
+  if (isLoading)
+    return (
+      <div className="loading">
+        <Loading />
+      </div>
+    );
 
- 
   // console.log(watchlist.movie._id);
 
   return (
@@ -70,40 +69,48 @@ function Watchlist() {
           </>
         )}
         {watchlist.map(watchlist => {
-          console.log('wathclist', watchlist)
+          console.log('wathclist', watchlist);
           return (
-            <div key={watchlist._id}>
+            <div className="item-movie" key={watchlist._id}>
               <Link to={`/movies/${watchlist.movie._id}`}>
-                <h2>{watchlist.movie.title}</h2>
-                <p>{watchlist.movie.buddy}</p>
-                {watchlist.movie.rating === 1 && (
-                  <>
-                    <StarActive /> <StarActive /> <Star /> <Star /> <Star />
-                  </>
-                )}
-                {watchlist.movie.rating === 2 && (
-                  <>
-                    <StarActive /> <StarActive /> <Star /> <Star /> <Star />
-                  </>
-                )}
-                {watchlist.movie.rating === 3 && (
-                  <>
-                    <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
-                  </>
-                )}
-                {watchlist.movie.rating === 4 && (
-                  <>
-                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
-                  </>
-                )}
-                {watchlist.movie.rating === 5 && (
-                  <>
-                    <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
-                  </>
-                )}
+                <div className="info">
+                  <h2>{watchlist.movie.title}</h2>
+                  <p>{watchlist.movie.buddy}</p>
+                </div>
               </Link>
-              <div onClick={() => handleOnClick(watchlist._id)}>
-                <Remove />
+              <div className="icons">
+                {/* //TODO  */}
+                <div className="stars">
+                  {watchlist.movie.rating === 1 && (
+                    <>
+                      <StarActive /> <StarActive /> <Star /> <Star /> <Star />
+                    </>
+                  )}
+                  {watchlist.movie.rating === 2 && (
+                    <>
+                      <StarActive /> <StarActive /> <Star /> <Star /> <Star />
+                    </>
+                  )}
+                  {watchlist.movie.rating === 3 && (
+                    <>
+                      <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
+                    </>
+                  )}
+                  {watchlist.movie.rating === 4 && (
+                    <>
+                      <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+                    </>
+                  )}
+                  {watchlist.movie.rating === 5 && (
+                    <>
+                      <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
+                    </>
+                  )}
+                </div>
+
+                <div onClick={() => handleOnClick(watchlist._id)}>
+                  <Remove />
+                </div>
               </div>
             </div>
           );

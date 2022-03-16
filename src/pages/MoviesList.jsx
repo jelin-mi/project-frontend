@@ -70,50 +70,58 @@ function MoviesList() {
   return (
     <>
       <div className="container">
-      <div className='headline'>
-        <Back />
-        <h1>BuddyFilms list</h1>
-      </div>
-      
+        <div className="headline">
+          <Back />
+          {/* //TODO  */}
+          <h1>BuddyFilms list</h1>
+        </div>
         <Search onFilter={onFilter} handleReset={handleReset} />
         <p className="error-message">{errorMessage}</p>
         <p className="info-message">{phrase}</p>
         {movies.map(movie => {
           return (
-            <div key={movie._id}>
+            <div className="item-movie" key={movie._id}>
               <Link to={`/movies/${movie._id}`}>
-                <h2>{movie.title}</h2>
-                <p>by {movie.buddy}</p>
+                <div className="info">
+                  {/* //TODO  */}
+                  <h2>{movie.title}</h2>
+                  <p>by {movie.buddy}</p>
+                </div>
               </Link>
-              {movie.rating === 1 && (
-                <>
-                  <StarActive /> <Star /> <Star /> <Star /> <Star />
-                </>
-              )}
-              {movie.rating === 2 && (
-                <>
-                  <StarActive /> <StarActive /> <Star /> <Star /> <Star />
-                </>
-              )}
-              {movie.rating === 3 && (
-                <>
-                  <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
-                </>
-              )}
-              {movie.rating === 4 && (
-                <>
-                  <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
-                </>
-              )}
-              {movie.rating === 5 && (
-                <>
-                  <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
-                </>
-              )}
-
-              <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
-              {/* //TODO if para cambiar el ícono de Watchlist */}
-                <WatchlistIcon />
+              <div className="icons">
+                {/* //TODO  */}
+                <div className="stars">
+                  {/* //TODO  */}
+                  {movie.rating === 1 && (
+                    <>
+                      <StarActive /> <Star /> <Star /> <Star /> <Star />
+                    </>
+                  )}
+                  {movie.rating === 2 && (
+                    <>
+                      <StarActive /> <StarActive /> <Star /> <Star /> <Star />
+                    </>
+                  )}
+                  {movie.rating === 3 && (
+                    <>
+                      <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
+                    </>
+                  )}
+                  {movie.rating === 4 && (
+                    <>
+                      <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+                    </>
+                  )}
+                  {movie.rating === 5 && (
+                    <>
+                      <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
+                    </>
+                  )}
+                </div>
+                <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
+                  {/* //TODO if para cambiar el ícono de Watchlist */}
+                  <WatchlistIcon />
+                </div>
               </div>
             </div>
           );

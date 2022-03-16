@@ -11,7 +11,7 @@ function Profile() {
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { /* isLoggedIn, */ /* user, */ logOutUser } = useContext(AuthContext);
+  const { /* isLoggedIn, */ /* user, */ logOutUser } = useContext(AuthContext); //TODO for movies and watchlist too? to pass all the details and do not have to run all this code...
 
   // List of all movies
   useEffect(() => {
