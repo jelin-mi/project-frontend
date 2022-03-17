@@ -119,7 +119,8 @@ function MovieEdit() {
             <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
 
-          <div>
+          <div className="label-input">
+            <label>Rating</label>
             {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
             {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}
             {rating > 2 ? <StarActive onClick={() => setRating(2)} /> : <Star onClick={() => setRating(3)} />}

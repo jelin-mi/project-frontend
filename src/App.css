@@ -54,7 +54,7 @@ body {
 }
 
 .container {
-  padding: 35px 15px 0;
+  padding: 35px 15px 130px;
   max-width: 375px;
   margin: 0 auto;
   position: relative;
@@ -96,15 +96,29 @@ button {
 
 .container.home {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
 }
+
 .home h1 {
   color: var(--active);
   font-size: 45px;
   letter-spacing: 0;
+  padding: 20px 0;
 }
 
 .home p {
+  font-size: 16px;
   color: var(--textWhite);
+}
+
+.home p a {
+  color: var(--active);
 }
 
 /* ----- Other styles ----- */
@@ -281,7 +295,8 @@ button a {
   margin-bottom: 1em;
 }
 
-.newfilm input {
+.newfilm input,
+.newfilm textarea {
   border: none;
   border-bottom: 1.5px solid var(--background);
   margin-bottom: 10px;
@@ -292,12 +307,19 @@ button a {
   font-family: 'EuclidSquare-Light';
 }
 
-.newfilm input:focus {
+.newfilm textarea {
+  min-height: 80px;
+  margin-bottom: 0;
+}
+
+.newfilm input:focus,
+.newfilm textarea:focus {
   background-color: #f5f5f5;
   border-radius: 5px;
 }
 
-.editfilm input {
+.editfilm input,
+.editfilm textarea {
   border: none;
   margin-bottom: 10px;
   padding: 8px;
@@ -309,11 +331,31 @@ button a {
   border-radius: 5px;
 }
 
+.editfilm textarea {
+  min-height: 80px;
+  margin-bottom: 0;
+}
+
 .editfilm .label-input {
   margin-top: 0;
   margin-bottom: 15px;
 }
 
+button {
+  color: var(--active);
+}
+
+.container.home button {
+  border-radius: 8px;
+  border: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: var(--white-color);
+  font-size: 17px;
+  width: 100%;
+  margin-bottom: 13px;
+}
 /* .background-home {
   background-color: #fed800;
 } */
