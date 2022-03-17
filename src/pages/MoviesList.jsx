@@ -8,6 +8,7 @@ import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 import Back from '../components/Back';
+import './Movie.css';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -70,8 +71,7 @@ function MoviesList() {
           <h1>BuddyFilms list</h1>
         </div>
         <Search onFilter={onFilter} />
-        <p className="error-message">{errorMessage}</p>
-        <p className="info-message">{phrase}</p>
+
         {filteredMovies.map(movie => {
           return (
             <div className="item-movie" key={movie._id}>
@@ -83,7 +83,6 @@ function MoviesList() {
               </Link>
               <div className="icons">
                 <div className="stars">
-                  {/* //TODO  */}
                   {movie.rating === 1 && (
                     <>
                       <StarActive /> <Star /> <Star /> <Star /> <Star />
@@ -118,6 +117,8 @@ function MoviesList() {
             </div>
           );
         })}
+        <p className="error-message">{errorMessage}</p>
+        <p className="info-message">{phrase}</p>
       </div>
       <Navbar />
     </>

@@ -9,6 +9,7 @@ import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.s
 import { ReactComponent as Loading } from '../../src/assets/loading.svg';
 import Back from '../components/Back';
 import imageDefault from '../assets/popcorn.png';
+import './Movie.css';
 
 function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);

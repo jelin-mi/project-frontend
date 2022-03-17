@@ -5,6 +5,7 @@ import apiService from '../services/api.service';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Back from '../components/Back';
+import './Movie.css';
 
 function MovieEdit() {
   const { id } = useParams();
@@ -26,8 +27,7 @@ function MovieEdit() {
     apiService.getOneMovie(id).then(response => {
       setMovie(response.data);
       setImageUrl(response.data.fileUrl);
-      console.log(response.data);
-      console.log(response.data.fileUrl);
+      setRating(response.data.rating);
     });
   }, []);
 
@@ -115,7 +115,6 @@ function MovieEdit() {
           </div>
           <div className="label-input">
             <label>Synopsis</label>
-            {/* <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} /> */}
             <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
 
