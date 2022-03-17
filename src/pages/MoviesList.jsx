@@ -14,6 +14,7 @@ function MoviesList() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
   const [phrase, setPhrase] = useState();
+  const [query, setQuery] = useState(''); //
 
   // List of all movies
   useEffect(() => {
@@ -48,17 +49,20 @@ function MoviesList() {
   };
 
   // Search
-  const onFilter = searchTerm => {
-    if (searchTerm === '') {
+   const onFilter = searchTerm => {
+     setQuery(searchTerm)
+   /*  if (searchTerm === '') {
       setMovies(movies);
     } else {
       setMovies(movies.filter(movie => movie.title.toLowerCase().includes(searchTerm.toLowerCase())));
-    }
+    } */
   };
 
-  const handleReset = () => {
+  const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
+
+  /* const handleReset = () => {
     location.reload();
-  };
+  }; */
 
   if (isLoading)
     return (
@@ -72,24 +76,21 @@ function MoviesList() {
       <div className="container">
         <div className="headline">
           <Back />
-          {/* //TODO  */}
           <h1>BuddyFilms list</h1>
         </div>
-        <Search onFilter={onFilter} handleReset={handleReset} />
+        <Search onFilter={onFilter} />
         <p className="error-message">{errorMessage}</p>
         <p className="info-message">{phrase}</p>
-        {movies.map(movie => {
+        {filteredMovies.map(movie => {
           return (
             <div className="item-movie" key={movie._id}>
               <Link to={`/movies/${movie._id}`}>
                 <div className="info">
-                  {/* //TODO  */}
                   <h2>{movie.title}</h2>
                   <p>by {movie.buddy}</p>
                 </div>
               </Link>
               <div className="icons">
-                {/* //TODO  */}
                 <div className="stars">
                   {/* //TODO  */}
                   {movie.rating === 1 && (
