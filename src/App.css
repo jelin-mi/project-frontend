@@ -3,11 +3,12 @@
   --active: #fed800;
   /*  --inactive: #d7cecd; */
   --inactive: #fff;
-  --opacity: 0.8; /* //TODO */
+  --opacity: 0.8;
   --error: red; /* //TODO What color to use? */
   --textColor: #333333;
-  --textWhite: #fff;
+  --textWhite: #fff;    /* //TODO  renombrar*/
 }
+
 
 /* ----- Tipography ----- */
 
@@ -18,6 +19,28 @@
     url('../public/fonts/euclidSquareLight.woff') format('woff'),
     url('../public/fonts/euclidSquareLight.ttf') format('truetype'),
     url('../public/fonts/euclidSquareLight.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EuclidSquare-Regular';
+  src: url('../public/fonts/EuclidSquareRegular.otf') format('opentype'),
+    url('../public/fonts/EuclidSquareRegular.eot') format('eot'),
+    url('../public/fonts/EuclidSquareRegular.woff') format('woff'),
+    url('../public/fonts/EuclidSquareRegular.ttf') format('truetype'),
+    url('../public/fonts/EuclidSquareRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EuclidSquare-Medium';
+  src: url('../public/fonts/EuclidSquareMedium.otf') format('opentype'),
+    url('../public/fonts/EuclidSquareMedium.eot') format('eot'),
+    url('../public/fonts/EuclidSquareMedium.woff') format('woff'),
+    url('../public/fonts/EuclidSquareMedium.ttf') format('truetype'),
+    url('../public/fonts/EuclidSquareMedium.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -44,10 +67,11 @@
   font-style: normal;
 }
 
+
 /* ----- General styles ----- */
 
 body {
-  /* //TODO */
+  /* //TODO  hace algo esto? */
   font-family: 'EuclidSquare-Light';
   font-size: 16px;
   color: var(--textColor);
@@ -68,7 +92,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'EuclidSquare-SemiBold';
+  font-family: 'EuclidSquare-Medium';
 }
 
 p {
@@ -82,46 +106,13 @@ p a {
   color: var(--textColor);
 }
 
-button {
-  background-color: aqua; /* //TODO replace by variant */
-}
+
+/* ----- Other styles ----- */
 
 .back {
-  /* //TODO */
   position: absolute;
   left: 0;
 }
-
-/* ----- Home ----- */
-
-.container.home {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  height: 100vh;
-}
-
-.home h1 {
-  color: var(--active);
-  font-size: 45px;
-  letter-spacing: 0;
-  padding: 20px 0;
-}
-
-.home p {
-  font-size: 16px;
-  color: var(--textWhite);
-}
-
-.home p a {
-  color: var(--active);
-}
-
-/* ----- Other styles ----- */
 
 .active {
   color: var(--active);
@@ -133,7 +124,6 @@ button {
 }
 
 .headline {
-  /* //TODO */
   display: flex;
   flex-direction: row;
   align-content: space-between;
@@ -153,129 +143,6 @@ button {
   color: var(--error);
 }
 
-.label-input {
-  margin-bottom: 0.5em;
-}
-
-.form label,
-.form input {
-  display: block;
-}
-
-.form label {
-  font-family: 'EuclidSquare-SemiBold';
-  font-size: 14px;
-  padding-bottom: 5px;
-}
-
-/* .watchlist-icon {
-  background-color: darkslateblue;
-} */
-
-/* ----- New style ----- */ /* //TODO organize by page name with comments */
-
-.item-movie {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: var(--background);
-  border-radius: 8px;
-  margin-bottom: 15px;
-  padding: 14px 17px 10px;
-}
-
-.item-movie .icons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.item-movie .info {
-  padding-right: 10px;
-}
-
-.item-movie .stars {
-  margin-right: 16px;
-  width: 125px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.item-movie a {
-  text-decoration: none;
-}
-
-.item-movie h2 {
-  color: var(--textWhite);
-  font-size: 18px;
-  /* padding-bottom: 3px; */
-  line-height: 22px;
-}
-
-.item-movie p {
-  color: var(--textWhite);
-  font-size: 13px;
-}
-
-/* ----- Film ----- */
-
-.cab {
-  display: flex;
-  width: 100%;
-  background-color: var(--background);
-  height: 117px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.cab .info {
-  padding-left: 15px;
-}
-
-.container.film .headline {
-  padding-left: 15px;
-}
-
-.cab .info h2 {
-  color: var(--textWhite);
-  font-family: 'EuclidSquare-SemiBold';
-  font-size: 24px;
-  padding-bottom: 14px;
-}
-
-.container.film {
-  padding: 35px 0 0;
-  max-width: 375px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.film .content {
-  padding: 25px 20px 0;
-}
-
-.film .content p {
-  font-family: 'EuclidSquare-Light';
-  font-size: 15px;
-  padding-bottom: 10px;
-}
-
-.film .content p span {
-  display: block;
-  font-size: 14px;
-  font-family: 'EuclidSquare-SemiBold';
-  color: var(--background);
-  line-height: 20px;
-}
-
-.cover {
-  padding-right: 15px;
-}
-
-.cover img {
-  border-radius: 4px;
-}
-
 button {
   margin-top: 1em;
   border: none;
@@ -291,71 +158,14 @@ button a {
   text-decoration: none;
 }
 
-.newfilm .label-input {
-  margin-bottom: 1em;
-}
-
-.newfilm input,
-.newfilm textarea {
-  border: none;
-  border-bottom: 1.5px solid var(--background);
-  margin-bottom: 10px;
-  padding: 8px;
-  width: calc(100% - 15px);
-  font-size: 13px;
-  color: var (--textColor);
-  font-family: 'EuclidSquare-Light';
-}
-
-.newfilm textarea {
-  min-height: 80px;
-  margin-bottom: 0;
-}
-
-.newfilm input:focus,
-.newfilm textarea:focus {
-  background-color: #f5f5f5;
-  border-radius: 5px;
-}
-
-.editfilm input,
-.editfilm textarea {
-  border: none;
-  margin-bottom: 10px;
-  padding: 8px;
-  width: calc(100% - 15px);
-  font-size: 13px;
-  color: var (--textColor);
-  font-family: 'EuclidSquare-Light';
-  background-color: #f5f5f5;
-  border-radius: 5px;
-}
-
-.editfilm textarea {
-  min-height: 80px;
-  margin-bottom: 0;
-}
-
-.editfilm .label-input {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
 button {
-  color: var(--active);
+  color: var(--active); /* //TODO  button tag está duplicado aquí */
 }
 
-.container.home button {
-  border-radius: 8px;
-  border: none;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  color: var(--white-color);
-  font-size: 17px;
-  width: 100%;
-  margin-bottom: 13px;
+
+/* ----- Logout ----- */
+
+.logout-icon {
+  position: absolute;
+  right: 0;
 }
-/* .background-home {
-  background-color: #fed800;
-} */

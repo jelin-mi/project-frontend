@@ -67,7 +67,7 @@ function MovieDetail() {
           <h1>Film</h1>
         </div>
         <div className="film" key={movie._id}>
-          <div className="cab">
+          <div className="hero">
             <div className="info">
               <h2>{movie.title}</h2>
               {movie.rating === 1 && (

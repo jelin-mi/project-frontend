@@ -5,6 +5,7 @@ import apiService from '../services/api.service';
 import { ReactComponent as Star } from '../../src/assets/star.svg';
 import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
 import Back from '../components/Back';
+import './Movie.css';
 
 function MovieCreate() {
   const [movie, setMovie] = useState({
@@ -18,6 +19,7 @@ function MovieCreate() {
   });
   const [rating, setRating] = useState(0);
   const [imageUrl, setImageUrl] = useState('');
+  const [errorMessage, setErrorMessage] = useState();
 
   const navigate = useNavigate();
 
@@ -41,7 +43,6 @@ function MovieCreate() {
       })
       .catch(err => console.log('Error while uploading the file: ', err));
   };
-  console.log('image', imageUrl);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -64,6 +65,8 @@ function MovieCreate() {
       })
       .catch(err => {
         console.log(err);
+        setErrorMessage(err.response.data.error);
+        setTimeout(() => setErrorMessage(''), 2000);
       });
   };
 
@@ -72,9 +75,8 @@ function MovieCreate() {
       <div className="container newfilm">
         <div className="headline">
           <Back />
-          <h1>Add new film</h1> {/* //TODO  */}
+          <h1>Add new film</h1>
         </div>
-
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
             <label>Title</label>
@@ -106,7 +108,6 @@ function MovieCreate() {
           </div>
           <div className="label-input">
             <label>Synopsis</label>
-            {/* <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} /> */}
             <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
 
@@ -118,10 +119,10 @@ function MovieCreate() {
             {rating > 3 ? <StarActive onClick={() => setRating(3)} /> : <Star onClick={() => setRating(4)} />}
             {rating > 4 ? <StarActive onClick={() => setRating(4)} /> : <Star onClick={() => setRating(5)} />}
           </div>
-
           <button type="submit">Add</button>
         </form>
-      </div>{' '}
+        <p className="error-message">{errorMessage}</p> {/* //TODO  */}
+      </div>
       <Navbar />
     </>
   );

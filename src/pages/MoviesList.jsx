@@ -51,18 +51,9 @@ function MoviesList() {
   // Search
    const onFilter = searchTerm => {
      setQuery(searchTerm)
-   /*  if (searchTerm === '') {
-      setMovies(movies);
-    } else {
-      setMovies(movies.filter(movie => movie.title.toLowerCase().includes(searchTerm.toLowerCase())));
-    } */
   };
 
   const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
-
-  /* const handleReset = () => {
-    location.reload();
-  }; */
 
   if (isLoading)
     return (

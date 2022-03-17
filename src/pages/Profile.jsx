@@ -71,7 +71,8 @@ function Profile() {
         <div className="headline">
           <Back />
           <h1>Your profile</h1>
-          <Logout onClick={logOutUser} />
+          <div className='logout-icon'><Logout onClick={logOutUser} /></div>
+         
         </div>
         <h2>Email</h2>
         <p>{profile.email}</p>

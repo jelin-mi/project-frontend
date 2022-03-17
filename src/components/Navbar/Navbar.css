@@ -15,22 +15,19 @@
   margin: 0 auto;
 }
 
-.item { /* //TODO delete this one? */
-}
-
 .navbar a {
   width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  font-family: 'EuclidSquare-SemiBold';
+  font-family: 'EuclidSquare-Medium';
   font-size: 13px;
   text-decoration: none;
 }
 
 .navbar a span {
-  font-family: 'EuclidSquare-SemiBold';
+  font-family: 'EuclidSquare-Medium';
   font-size: 13px;
   padding-top: 8px;
 }

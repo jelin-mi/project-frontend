@@ -2,11 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthProviderWrapper } from './context/auth.context';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-import Error404 from './pages/Error404';
+import Error404 from './pages/Error404/Error404';
 import './reset.css';
 import './App.css';
 
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import MoviesList from './pages/MoviesList';

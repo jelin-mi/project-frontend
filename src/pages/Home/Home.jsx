@@ -1,17 +1,18 @@
-import cover from '../assets/popcorn.png';
+import cover from '../../assets/popcorn.png';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
-import { AuthContext } from './../context/auth.context';
-import { ReactComponent as Loading } from '../../src/assets/loading.svg';
+import { AuthContext } from '../../context/auth.context';
+import { ReactComponent as Loading } from '../../assets/loading.svg';
+import './Home.css';
 
 function Home() {
-  const { isLoggedIn, isLoading /* , user */ } = useContext(AuthContext);
+  const { isLoggedIn, isLoading } = useContext(AuthContext);
 
   useEffect(() => {
-    document.body.style.backgroundColor = '#370906'; // Background color of Homepage
+    document.body.style.backgroundColor = '#370906';
 
     return () => {
-      document.body.style.backgroundColor = '#FFF'; // Background color of the rest of the pages #FFEBE4
+      document.body.style.backgroundColor = '#FFF';
     };
   }, []);
 
@@ -22,12 +23,10 @@ function Home() {
           <Loading />
         </div>
       )}
-
       {!isLoading && (
         <div className="container home">
           <img src={cover} alt="" />
           <h1>BuddyFilms</h1>
-
           {!isLoggedIn && (
             <>
               <Link to="/signup">
@@ -43,7 +42,7 @@ function Home() {
           )}
           {isLoggedIn && (
             <p>
-              Hello buddy{/* {user.name ? user.name : 'buddy'} */}, check your <Link to={'/movies'}>movies</Link>.
+              Hello buddy, check your <Link to={'/movies'}>movies</Link>.
             </p>
           )}
         </div>
