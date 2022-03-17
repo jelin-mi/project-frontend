@@ -36,7 +36,6 @@ function MovieEdit() {
       return {
         ...prev,
         [e.target.name]: e.target.value,
-        
       };
     });
   };
@@ -54,8 +53,6 @@ function MovieEdit() {
       .catch(err => console.log(err));
   };
   console.log('image', imageUrl);
-  
-
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -82,10 +79,10 @@ function MovieEdit() {
 
   return (
     <>
-      <div className="container">
+      <div className="container editfilm">
         <div className="headline">
           <Back />
-          <h2>Movie edit</h2>
+          <h1>Movie edit</h1>
         </div>
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
@@ -118,7 +115,8 @@ function MovieEdit() {
           </div>
           <div className="label-input">
             <label>Synopsis</label>
-            <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
+            {/* <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} /> */}
+            <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
 
           <div>

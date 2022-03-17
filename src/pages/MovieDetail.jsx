@@ -61,52 +61,78 @@ function MovieDetail() {
 
   return (
     <>
-      <div className="container">
+      <div className="container film">
         <div className="headline">
           <Back />
           <h1>Film</h1>
         </div>
-        <div key={movie._id}>
-          <h2>{movie.title}</h2>
-          {movie.imageUrl ? <img src={movie.imageUrl} alt="pic" /> : <img src={imageDefault} alt="" />} 
-          <p>Year: {movie.year}</p>
-          <p>Country: {movie.country}</p>
-          <p>Director: {movie.director}</p>
-          <p>Synopsis: {movie.synopsis}</p>
-          <p>Channel: {movie.channel}</p>
-          <p>Buddy: {movie.buddy}</p>
-          {movie.rating === 1 && (
-            <>
-              <StarActive /> <Star /> <Star /> <Star /> <Star />
-            </>
-          )}
-          {movie.rating === 2 && (
-            <>
-              <StarActive /> <StarActive /> <Star /> <Star /> <Star />
-            </>
-          )}
-          {movie.rating === 3 && (
-            <>
-              <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
-            </>
-          )}
-          {movie.rating === 4 && (
-            <>
-              <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
-            </>
-          )}
-          {movie.rating === 5 && (
-            <>
-              <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
-            </>
-          )}
-          {movie.owner === user._id && <Link to={`/movies/${movie._id}/edit`}>Edit film</Link>}
-          <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
-            <WatchlistIcon />
+        <div className="film" key={movie._id}>
+          <div className="cab">
+            <div className="info">
+              <h2>{movie.title}</h2>
+              {movie.rating === 1 && (
+                <>
+                  <StarActive /> <Star /> <Star /> <Star /> <Star />
+                </>
+              )}
+              {movie.rating === 2 && (
+                <>
+                  <StarActive /> <StarActive /> <Star /> <Star /> <Star />
+                </>
+              )}
+              {movie.rating === 3 && (
+                <>
+                  <StarActive /> <StarActive /> <StarActive /> <Star /> <Star />
+                </>
+              )}
+              {movie.rating === 4 && (
+                <>
+                  <StarActive /> <StarActive /> <StarActive /> <StarActive /> <Star />
+                </>
+              )}
+              {movie.rating === 5 && (
+                <>
+                  <StarActive /> <StarActive /> <StarActive /> <StarActive /> <StarActive />
+                </>
+              )}
+            </div>
+            <div className="cover">
+              {movie.imageUrl ? <img src={movie.imageUrl} alt="pic" /> : <img src={imageDefault} alt="" />}
+            </div>
           </div>
+
+          <div className="content">
+            <p>
+              <span>Year:</span> {movie.year}
+            </p>
+            <p>
+              <span>Country:</span> {movie.country}
+            </p>
+            <p>
+              <span>Director:</span> {movie.director}
+            </p>
+            <p>
+              <span>Synopsis:</span> {movie.synopsis}
+            </p>
+            <p>
+              <span>Channel:</span> {movie.channel}
+            </p>
+            <p>
+              <span>Buddy:</span> {movie.buddy}
+            </p>
+
+            {movie.owner === user._id && (
+              <button>
+                <Link to={`/movies/${movie._id}/edit`}>Edit film</Link>{' '}
+              </button>
+            )}
+            <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
+              <WatchlistIcon />
+            </div>
+          </div>
+          <p className="error-message">{errorMessage}</p>
+          <p className="info-message">{phrase}</p>
         </div>
-        <p className="error-message">{errorMessage}</p>
-        <p className="info-message">{phrase}</p>
       </div>
       <Navbar />
     </>

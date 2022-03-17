@@ -20,7 +20,7 @@ function App() {
   return (
     <AuthProviderWrapper>
       <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
         <Route
           path="/login"
           element={

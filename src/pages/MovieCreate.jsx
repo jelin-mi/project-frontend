@@ -69,7 +69,7 @@ function MovieCreate() {
 
   return (
     <>
-      <div className="container">
+      <div className="container newfilm">
         <div className="headline">
           <Back />
           <h1>Add new film</h1> {/* //TODO  */}
@@ -106,7 +106,8 @@ function MovieCreate() {
           </div>
           <div className="label-input">
             <label>Synopsis</label>
-            <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
+            {/* <input type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} /> */}
+            <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
 
           <div>
