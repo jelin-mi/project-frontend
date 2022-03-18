@@ -7,14 +7,14 @@ import './reset.css';
 import './App.css';
 
 import Home from './pages/Home/Home';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import MoviesList from './pages/MoviesList';
-import MovieDetail from './pages/MovieDetail';
-import MovieCreate from './pages/MovieCreate';
-import MovieEdit from './pages/MovieEdit';
-import Watchlist from './pages/Watchlist';
-import Profile from './pages/Profile';
+import Signup from './pages/Signup/Signup';
+import Login from './pages/Login/Login';
+import MoviesList from './pages/Movies/MoviesList';
+import MovieDetail from './pages/Movies/MovieDetail';
+import MovieCreate from './pages/Movies/MovieCreate';
+import MovieEdit from './pages/Movies/MovieEdit';
+import Watchlist from './pages/Watchlist/Watchlist';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/movies/:id" element={<MovieDetail />} />
+        <Route path="/movies/:id" element={<IsPrivate><MovieDetail /></IsPrivate>} />
         <Route
           path="/movies/:id/edit"
           element={

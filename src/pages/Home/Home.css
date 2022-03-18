@@ -5,7 +5,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  padding: 0 20px;
   height: 100vh;
 }
 
@@ -15,24 +15,43 @@
   padding-top: 15px;
   padding-bottom: 15px;
   text-align: center;
-  color: var(--white-color);
   font-size: 17px;
   width: 100%;
-  margin-bottom: 13px;
+  margin-bottom: 8px;
+  background-color: var(--active);
+  border: 2px solid var(--active);
+}
+
+.container.home button.signup a {
+  color: var(--background);
+  font-size: 18px;
+  font-family: 'EuclidSquare-Medium';
+}
+
+.container.home button.login {
+  background-color: transparent;
+}
+.container.home button.login a {
+  color: var(--active);
+  font-size: 18px;
+  font-family: 'EuclidSquare-Medium';
 }
 
 .home h1 {
   color: var(--active);
   font-size: 45px;
   letter-spacing: 0;
-  padding: 20px 0;
+  padding: 20px 0 5px;
 }
 
 .home p {
-  font-size: 16px;
-  color: var(--textWhite);
+  padding: 10px 20px 0;
+  font-size: 15px;
+  color: var(--textLight);
+  font-family: 'EuclidSquare-light';
+  line-height: 24px;
 }
 
 .home p a {
-  color: var(--active);
+  color: var(--textLight);
 }

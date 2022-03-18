@@ -1,0 +1,23 @@
+.container.watchlist p.any-movies {
+  padding-bottom: 20px;
+}
+
+.container.watchlist p.any-movies strong {
+  font-family: 'EuclidSquare-Medium';
+}
+
+.container.watchlist p.any-movies svg {
+  top: 4px;
+  position: relative;
+}
+
+.container.watchlist .icon-wheel {
+  padding-top: 1.5em;
+  text-align: center;
+}
+
+.icon-wheel img {
+  max-width: 110px;
+  width: 100%;
+  height: auto;
+}

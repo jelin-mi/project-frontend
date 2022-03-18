@@ -1,25 +1,26 @@
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from '../../context/auth.context';
+import './Signup.css';
 
-function Login() {
+function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const { signup } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  const { login } = useContext(AuthContext);
 
   const handleEmail = e => setEmail(e.target.value);
   const handlePassword = e => setPassword(e.target.value);
 
-  const handleLoginSubmit = e => {
+  const handleSignupSubmit = e => {
     e.preventDefault();
     const requestBody = { email, password };
 
-    login(requestBody)
+    signup(requestBody)
       .then(() => {
-        navigate('/movies');
+        navigate('/login');
       })
       .catch(error => {
         const errorDescription = error.response.data.message;
@@ -28,31 +29,29 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <h1>BuddyFilms login</h1>
+    <div className="container signup">
+      <h1>Welcome to Buddy Films</h1>
       <p>
-        Hey movie lover,
-        <br />
-        please log in into your account.
+        Hey movie lover!
+        <br />I guess you are new around here. Please create your account to get the most from this app.
       </p>
-
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
+      <form onSubmit={handleSignupSubmit}>
+        <label>Email address</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <label>Password</label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
-
-        <button type="submit">Login</button>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <button type="submit">Sign Up</button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p>
-        Don’t have an account yet?
+
+      <p className="text">
+        Already have account?
         <br />
-        Sign up <Link to={'/signup'}>here</Link>.
+        Log in <Link to={'/login'}>here</Link>.
       </p>
     </div>
   );
 }
 
-export default Login;
+export default Signup;

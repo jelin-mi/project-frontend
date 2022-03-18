@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import apiService from '../services/api.service';
-import Navbar from '../components/Navbar/Navbar';
-import { ReactComponent as Star } from '../../src/assets/star.svg';
-import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
-import { ReactComponent as Loading } from '../../src/assets/loading.svg';
-import Back from '../components/Back';
-import imageDefault from '../assets/popcorn.png';
-import './Movie.css';
+import { AuthContext } from '../../context/auth.context';
+import apiService from '../../services/api.service';
+import Navbar from '../../components/Navbar/Navbar';
+import { ReactComponent as Star } from '../../assets/star.svg';
+import { ReactComponent as StarActive } from '../../assets/starActive.svg';
+import { ReactComponent as WatchlistIcon } from '../../assets/watchlistAdd.svg';
+import { ReactComponent as Loading } from '../../assets/loading.svg';
+import Back from '../../components/Back';
+import imageDefault from '../../assets/popcorn.png';
+import './Movies.css';
 
 function MovieDetail() {
   const [isLoading, setIsLoading] = useState(true);

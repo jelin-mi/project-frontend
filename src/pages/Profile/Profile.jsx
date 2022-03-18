@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import Navbar from '../components/Navbar/Navbar';
-import { AuthContext } from '../context/auth.context';
-import apiService from '../services/api.service';
-import Back from '../components/Back';
-import { ReactComponent as Loading } from '../../src/assets/loading.svg';
-import { ReactComponent as Logout } from '../../src/assets/logout.svg';
-import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar';
+import { AuthContext } from '../../context/auth.context';
+import apiService from '../../services/api.service';
+import Back from '../../components/Back';
+import { ReactComponent as Loading } from '../../assets/loading.svg';
+import { ReactComponent as Logout } from '../../assets/logout.svg';
+/* import { Link } from 'react-router-dom'; */
+import './Profile.css';
 
 function Profile() {
   const [profile, setProfile] = useState({});
@@ -71,32 +72,38 @@ function Profile() {
         <div className="headline">
           <Back />
           <h1>Your profile</h1>
-          <div className='logout-icon'><Logout onClick={logOutUser} /></div>
-         
+          <div className="logout-icon">
+            <Logout onClick={logOutUser} />
+          </div>
         </div>
         <h2>Email</h2>
         <p>{profile.email}</p>
         <h2>Status</h2>
-        <p>There are {movies.length} movies you can choose from.</p>
-        <button>
-          <Link to={'/movies'}>Check movies</Link>
-        </button>
-        {/* //TODO if X > 10 --> 'great job' */}
-        <p>You have {watchlist.length} movies in your Watchlist.</p>
-        {/* {watchlist.length <= 5 && <p>You can make better.</p>} */}
-        {watchlist.length < 5 && (
+        <ul> {/* //TODO */}
+          <li>Films: {movies.length} movies available</li>
+          <li>Watchlist: {watchlist.length} movies</li>
+        </ul>
+        {watchlist.length <= 1 && (
           <>
-            <p>Seems you have few movies to watch.</p>
-            <br />
-            <button>
-              <Link to={'/watchlist'}>See Watchlist</Link>
-            </button>
+            <img></img>
+            <h3>Congratulations! You have won BuddyFilms Oscar.</h3>
           </>
         )}
-        <p>
-          <strong>Not in a mood for listed movies?</strong>
-        </p>
-        <p>Ask your friend for a recomendation and add a new movie to BuddyFilms!</p>
+        {watchlist.length > 1 && watchlist.length <= 5 && (
+          <>
+            <img></img>
+            <h3>Good job! You have won BuddyFilms Goya.</h3>
+          </>
+        )}
+        {watchlist.length > 5 && (
+          <>
+            <img></img>
+            <h3>Ou! It seems you do not have time to watch the movies.</h3>
+          </>
+        )}
+        {/* <h3>Not in a mood for listed movies?</h3> */}
+        <p>Cannot find what you are looking for?</p>
+        <p>Ask your friend for a recomendation and add a New Film to BuddyFilms!</p>
       </div>
       <Navbar />
     </>

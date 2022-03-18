@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import apiService from '../services/api.service';
-import Navbar from '../components/Navbar/Navbar';
-import Search from '../components/Search/Search';
-import { ReactComponent as Star } from '../../src/assets/star.svg';
-import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import { ReactComponent as WatchlistIcon } from '../../src/assets/watchlistAdd.svg';
-import { ReactComponent as Loading } from '../../src/assets/loading.svg';
-import Back from '../components/Back';
-import './Movie.css';
+import apiService from '../../services/api.service';
+import Navbar from '../../components/Navbar/Navbar';
+import Search from '../../components/Search/Search';
+import { ReactComponent as Star } from '../../assets/star.svg';
+import { ReactComponent as StarActive } from '../../assets/starActive.svg';
+import { ReactComponent as WatchlistIcon } from '../../assets/watchlistAdd.svg';
+import { ReactComponent as Loading } from '../../assets/loading.svg';
+import Back from '../../components/Back';
+import './Movies.css';
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);

@@ -7,7 +7,7 @@
   background-color: var(--background);
   border-radius: 8px;
   margin-bottom: 15px;
-  padding: 14px 17px 10px;
+  padding: 14px 17px 11px;
 }
 
 .item-movie .icons {
@@ -32,14 +32,13 @@
 }
 
 .item-movie h2 {
-  color: var(--textWhite);
-  font-size: 18px;
-  /* padding-bottom: 3px; */
+  color: var(--textLight);
+  font-size: 17px;
   line-height: 22px;
 }
 
 .item-movie p {
-  color: var(--textWhite);
+  color: var(--textLight);
   font-size: 13px;
 }
 
@@ -63,14 +62,14 @@
 }
 
 .hero .info h2 {
-  color: var(--textWhite);
+  color: var(--textLight);
   font-family: 'EuclidSquare-Medium';
   font-size: 24px;
   padding-bottom: 14px;
 }
 
 .container.film {
-  padding: 35px 0 0;
+  padding: 35px 0 100px;
   max-width: 375px;
   margin: 0 auto;
   position: relative;
@@ -99,9 +98,11 @@
 }
 
 .cover img {
+  max-width: 138px;
+  width: 100%;
+  height: auto;
   border-radius: 4px;
 }
-
 
 /* ----- Form ----- */
 
@@ -132,7 +133,7 @@
   padding: 8px;
   width: calc(100% - 15px);
   font-size: 13px;
-  color: var (--textColor);
+  color: var (--textDark);
   font-family: 'EuclidSquare-Light';
 }
 
@@ -143,7 +144,7 @@
 
 .newfilm input:focus,
 .newfilm textarea:focus {
-  background-color: #f5f5f5;
+  background-color: var(--backgroundLight);
   border-radius: 5px;
 }
 
@@ -154,9 +155,9 @@
   padding: 8px;
   width: calc(100% - 15px);
   font-size: 13px;
-  color: var (--textColor);
+  color: var (--textDark);
   font-family: 'EuclidSquare-Light';
-  background-color: #f5f5f5;
+  background-color: var(--backgroundLight);
   border-radius: 5px;
 }
 

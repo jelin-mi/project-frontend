@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar/Navbar';
-import apiService from '../services/api.service';
-import { ReactComponent as Star } from '../../src/assets/star.svg';
-import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import Back from '../components/Back';
-import './Movie.css';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar';
+import apiService from '../../services/api.service';
+import { ReactComponent as Star } from '../../assets/star.svg';
+import { ReactComponent as StarActive } from '../../assets/starActive.svg';
+import Back from '../../components/Back';
+import './Movies.css';
 
-function MovieCreate() {
+function MovieEdit() {
+  const { id } = useParams();
   const [movie, setMovie] = useState({
     title: '',
     year: '',
@@ -19,9 +20,16 @@ function MovieCreate() {
   });
   const [rating, setRating] = useState(0);
   const [imageUrl, setImageUrl] = useState('');
-  const [errorMessage, setErrorMessage] = useState();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    apiService.getOneMovie(id).then(response => {
+      setMovie(response.data);
+      setImageUrl(response.data.fileUrl);
+      setRating(response.data.rating);
+    });
+  }, []);
 
   const handleOnChange = e => {
     setMovie(prev => {
@@ -40,14 +48,16 @@ function MovieCreate() {
       .then(response => {
         console.log(response.data);
         setImageUrl(response.data.fileUrl);
+        console.log(response.data.fileUrl);
       })
-      .catch(err => console.log('Error while uploading the file: ', err));
+      .catch(err => console.log(err));
   };
+  console.log('image', imageUrl);
 
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .createMovie({
+      .editMovie(movie._id, {
         title: movie.title,
         imageUrl: imageUrl,
         year: movie.year,
@@ -60,22 +70,19 @@ function MovieCreate() {
       })
       .then(response => {
         console.log(response);
-        console.log(response.data);
-        navigate('/movies');
+        navigate(`/movies/${movie._id}`);
       })
       .catch(err => {
         console.log(err);
-        setErrorMessage(err.response.data.error);
-        setTimeout(() => setErrorMessage(''), 2000);
       });
   };
 
   return (
     <>
-      <div className="container newfilm">
+      <div className="container editfilm">
         <div className="headline">
           <Back />
-          <h1>Add new film</h1>
+          <h1>Movie edit</h1>
         </div>
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
@@ -84,7 +91,7 @@ function MovieCreate() {
           </div>
           <div className="label-input">
             <label>Image</label>
-            <input type="file" name="imageUrl" onChange={e => handleFileUpload(e)} />
+            <input type="file" name="imageUrl" onChange={handleFileUpload} />
           </div>
           <div className="label-input">
             <label>Year</label>
@@ -119,13 +126,13 @@ function MovieCreate() {
             {rating > 3 ? <StarActive onClick={() => setRating(3)} /> : <Star onClick={() => setRating(4)} />}
             {rating > 4 ? <StarActive onClick={() => setRating(4)} /> : <Star onClick={() => setRating(5)} />}
           </div>
-          <button type="submit">Add</button>
+
+          <button type="submit">Save</button>
         </form>
-        <p className="error-message">{errorMessage}</p> {/* //TODO  */}
       </div>
       <Navbar />
     </>
   );
 }
 
-export default MovieCreate;
+export default MovieEdit;

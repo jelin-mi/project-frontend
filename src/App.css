@@ -1,14 +1,13 @@
 :root {
   --background: #370906;
+  --backgroundLight: #eee;
   --active: #fed800;
-  /*  --inactive: #d7cecd; */
-  --inactive: #fff;
+  --textDark: #333333;
+  --textLight: #fff;
   --opacity: 0.8;
+  --success: green;
   --error: red; /* //TODO What color to use? */
-  --textColor: #333333;
-  --textWhite: #fff;    /* //TODO  renombrar*/
 }
-
 
 /* ----- Tipography ----- */
 
@@ -67,18 +66,17 @@
   font-style: normal;
 }
 
-
 /* ----- General styles ----- */
 
 body {
-  /* //TODO  hace algo esto? */
   font-family: 'EuclidSquare-Light';
   font-size: 16px;
-  color: var(--textColor);
+  color: var(--textDark);
 }
 
 .container {
-  padding: 35px 15px 130px;
+  padding: 35px 15px 100px;
+  /* padding: 35px 15px 130px;  //TODO */
   max-width: 375px;
   margin: 0 auto;
   position: relative;
@@ -98,16 +96,12 @@ h2 {
 p {
   font-size: 16px;
   line-height: 22px;
-  color: var(--textColor);
+  color: var(--textDark);
 }
 
 p a {
-  font-family: 'EuclidSquare-SemiBold';
-  color: var(--textColor);
+  color: var(--textDark);
 }
-
-
-/* ----- Other styles ----- */
 
 .back {
   position: absolute;
@@ -119,7 +113,7 @@ p a {
 }
 
 .inactive {
-  color: var(--inactive);
+  color: var(--textLight);
   opacity: var(--opacity);
 }
 
@@ -136,7 +130,7 @@ p a {
 }
 
 .info-message {
-  color: green; /* //TODO replace by variant */
+  color: var(--success);
 }
 
 .error-message {
@@ -148,24 +142,13 @@ button {
   border: none;
   border-radius: 8px;
   background-color: var(--background);
+  color: var(--active);
   padding: 10px 25px;
 }
 
 button a {
-  color: #fed800;
+  color: var(--active);
   font-size: 14px;
   font-family: 'EuclidSquare-Light';
   text-decoration: none;
-}
-
-button {
-  color: var(--active); /* //TODO  button tag está duplicado aquí */
-}
-
-
-/* ----- Logout ----- */
-
-.logout-icon {
-  position: absolute;
-  right: 0;
 }

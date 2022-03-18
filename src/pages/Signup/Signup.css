@@ -1,0 +1,49 @@
+.container.signup {
+  padding: 35px 20px 130px;
+}
+
+.container.signup h1 {
+  padding-left: 0;
+  padding-bottom: 1em;
+}
+
+.container.signup p {
+  padding-left: 0;
+  padding-bottom: 2em;
+  line-height: 24px;
+}
+
+.container.signup label {
+  display: block;
+  font-family: 'EuclidSquare-SemiBold';
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.container.signup input {
+  border: none;
+  margin-bottom: 20px;
+  padding: 10px;
+  height: 20px;
+  width: calc(100% - 20px);
+  font-size: 13px;
+  color: var (--textDark);
+  font-family: 'EuclidSquare-Light';
+  background-color: var(--backgroundLight);
+  border-radius: 5px;
+}
+
+.container.signup button {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-family: 'EuclidSquare-Medium';
+  background-color: var(--background);
+  border: 2px solid var(--background);
+}
+
+.container.signup .text {
+  text-align: center;
+  padding-top: 2em;
+}

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import apiService from '../services/api.service';
-import Navbar from '../components/Navbar/Navbar';
-import { ReactComponent as Star } from '../../src/assets/star.svg';
-import { ReactComponent as StarActive } from '../../src/assets/starActive.svg';
-import { ReactComponent as Loading } from '../../src/assets/loading.svg';
-import { ReactComponent as Remove } from '../../src/assets/remove.svg';
-import wheel from '../../src/assets/wheel.png';
-import Back from '../components/Back';
+import apiService from '../../services/api.service';
+import Navbar from '../../components/Navbar/Navbar';
+import { ReactComponent as Star } from '../../assets/star.svg';
+import { ReactComponent as StarActive } from '../../assets/starActive.svg';
+import { ReactComponent as Loading } from '../../assets/loading.svg';
+import { ReactComponent as Remove } from '../../assets/remove.svg';
+import { ReactComponent as WatchlistActive } from '../../assets/watchlistActive.svg';
+import wheel from '../../assets/wheel.png';
+import Back from '../../components/Back';
+import './Watchlist.css';
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState([]);
@@ -51,19 +53,27 @@ function Watchlist() {
 
   return (
     <>
-      <div className="container">
+      <div className="container watchlist">
         <div className="headline">
           <Back />
           <h1>My Watchlist</h1>
         </div>
         {watchlist.length === 0 && (
           <>
-            <p>
-              You do not have any movies in your Watchlist yet.
-              <br />
-              Go to the <Link to={'/movies'}>Movies</Link> page and add some by clicking at 👍 icon.
+            <p className="any-movies">
+              <strong>
+                You do not have any movies in your<br></br>Watchlist yet
+              </strong>.</p>
+            <p className="any-movies">
+              Go to the{' '}
+              <Link to={'/movies'}>
+                <strong>Films</strong>
+              </Link>{' '}
+              page and add some by clicking at <WatchlistActive /> icon.
             </p>
-            <img src={wheel} alt="wheel" />
+            <div className="icon-wheel">
+              <img src={wheel} alt="wheel" />
+            </div>
           </>
         )}
         {watchlist.map(watchlist => {
@@ -73,11 +83,10 @@ function Watchlist() {
               <Link to={`/movies/${watchlist.movie._id}`}>
                 <div className="info">
                   <h2>{watchlist.movie.title}</h2>
-                  <p>{watchlist.movie.buddy}</p>
+                  <p>by {watchlist.movie.buddy}</p>
                 </div>
               </Link>
               <div className="icons">
-                {/* //TODO  */}
                 <div className="stars">
                   {watchlist.movie.rating === 1 && (
                     <>
