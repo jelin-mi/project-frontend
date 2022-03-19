@@ -29,6 +29,7 @@ function MovieEdit() {
       setImageUrl(response.data.fileUrl);
       setRating(response.data.rating);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOnChange = e => {
