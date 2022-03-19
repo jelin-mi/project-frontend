@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
-import apiService from '../../services/api.service';
-import Navbar from '../../components/Navbar/Navbar';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../assets/loading.svg';
+import apiService from '../../services/api.service';
+import Navbar from '../../components/Navbar/Navbar';
 import Back from '../../components/Back';
-import imageDefault from '../../assets/popcorn.png';
+import imageDefault from '../../assets/noImg.jpeg';
 import './Movies.css';
 
 function MovieDetail() {
@@ -23,7 +23,6 @@ function MovieDetail() {
     apiService
       .getOneMovie(id)
       .then(response => {
-        console.log(response.data);
         setMovie(response.data);
         setIsLoading(false);
       })
@@ -57,8 +56,6 @@ function MovieDetail() {
         <Loading />
       </div>
     );
-
-  console.log(movie.imageUrl);
 
   return (
     <>

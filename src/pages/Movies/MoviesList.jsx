@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import apiService from '../../services/api.service';
-import Navbar from '../../components/Navbar/Navbar';
-import Search from '../../components/Search/Search';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../assets/watchlistAdd.svg';
 import { ReactComponent as Loading } from '../../assets/loading.svg';
+import apiService from '../../services/api.service';
+import Navbar from '../../components/Navbar/Navbar';
+import Search from '../../components/Search/Search';
 import Back from '../../components/Back';
 import './Movies.css';
 
@@ -15,7 +15,7 @@ function MoviesList() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
   const [phrase, setPhrase] = useState();
-  const [query, setQuery] = useState(''); //
+  const [query, setQuery] = useState('');
 
   // List of all movies
   useEffect(() => {
@@ -42,7 +42,6 @@ function MoviesList() {
         console.log(response.data);
       })
       .catch(err => {
-        console.log(err);
         setPhrase('');
         setErrorMessage(err.response.data.message);
         setTimeout(() => setErrorMessage(''), 2000);
@@ -54,7 +53,7 @@ function MoviesList() {
      setQuery(searchTerm)
   };
 
-  const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
+  const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
 
   if (isLoading)
     return (
@@ -110,7 +109,6 @@ function MoviesList() {
                   )}
                 </div>
                 <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
-                  {/* //TODO if para cambiar el ícono de Watchlist */}
                   <WatchlistIcon />
                 </div>
               </div>

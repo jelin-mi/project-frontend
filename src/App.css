@@ -76,7 +76,6 @@ body {
 
 .container {
   padding: 35px 15px 100px;
-  /* padding: 35px 15px 130px;  //TODO */
   max-width: 375px;
   margin: 0 auto;
   position: relative;
@@ -125,9 +124,9 @@ p a {
   padding-bottom: 2em;
 }
 
-.loading {
+/* .loading {
   background-color: var(--background);
-}
+} */
 
 .info-message {
   color: var(--success);

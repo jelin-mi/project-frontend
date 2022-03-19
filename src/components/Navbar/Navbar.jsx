@@ -10,7 +10,6 @@ function Navbar() {
     <div className="navbar-bg">
       <nav className="navbar">
         {' '}
-        {/* //TODO  */}
         <div className="item">
           <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/watchlist">
             <Watchlist /> <span>Watchlist</span>
@@ -39,5 +38,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-//TODO if no need of separate 'active' images, delete them.

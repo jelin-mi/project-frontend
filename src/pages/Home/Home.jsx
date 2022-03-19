@@ -25,7 +25,6 @@ function Home() {
       )}
       {!isLoading && (
         <div className="container home">
-          {/* <img src={cover} alt="" /> */}
           <Cover />
           <h1>BuddyFilms</h1>
           {!isLoggedIn && (

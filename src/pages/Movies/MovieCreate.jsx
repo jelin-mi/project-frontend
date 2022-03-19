@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
-import apiService from '../../services/api.service';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
+import Navbar from '../../components/Navbar/Navbar';
+import apiService from '../../services/api.service';
 import Back from '../../components/Back';
 import './Movies.css';
 
@@ -38,7 +38,6 @@ function MovieCreate() {
     apiService
       .uploadImage(uploadData)
       .then(response => {
-        console.log(response.data);
         setImageUrl(response.data.fileUrl);
       })
       .catch(err => console.log('Error while uploading the file: ', err));
@@ -60,11 +59,9 @@ function MovieCreate() {
       })
       .then(response => {
         console.log(response);
-        console.log(response.data);
         navigate('/movies');
       })
       .catch(err => {
-        console.log(err);
         setErrorMessage(err.response.data.error);
         setTimeout(() => setErrorMessage(''), 2000);
       });
@@ -85,6 +82,7 @@ function MovieCreate() {
           <div className="label-input">
             <label>Image</label>
             <input type="file" name="imageUrl" onChange={e => handleFileUpload(e)} />
+            <p className="help-text">Recommended dimensions: 384 x 500 px</p>
           </div>
           <div className="label-input">
             <label>Year</label>
@@ -121,7 +119,7 @@ function MovieCreate() {
           </div>
           <button type="submit">Add</button>
         </form>
-        <p className="error-message">{errorMessage}</p> {/* //TODO  */}
+        <p className="error-message">{errorMessage}</p>
       </div>
       <Navbar />
     </>

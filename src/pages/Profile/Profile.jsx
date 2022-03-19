@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import { AuthContext } from '../../context/auth.context';
-import apiService from '../../services/api.service';
-import Back from '../../components/Back';
 import { ReactComponent as Loading } from '../../assets/loading.svg';
 import { ReactComponent as Logout } from '../../assets/logout.svg';
-/* import { Link } from 'react-router-dom'; */
+import { AuthContext } from '../../context/auth.context';
+import Navbar from '../../components/Navbar/Navbar';
+import apiService from '../../services/api.service';
+import Back from '../../components/Back';
 import './Profile.css';
 
 function Profile() {
@@ -13,7 +12,7 @@ function Profile() {
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { /* isLoggedIn, */ /* user, */ logOutUser } = useContext(AuthContext);
+  const { logOutUser } = useContext(AuthContext);
 
   // List of all movies
   useEffect(() => {
@@ -32,8 +31,6 @@ function Profile() {
     apiService
       .getProfile({})
       .then(response => {
-        console.log(response.data);
-        console.table(response.data);
         setProfile(response.data);
       })
       .catch(err => {
@@ -57,8 +54,6 @@ function Profile() {
     setIsLoading(false);
   }, []);
 
-  console.log(profile);
-
   if (isLoading)
     return (
       <div className="loading">
@@ -79,29 +74,30 @@ function Profile() {
         <h2>Email</h2>
         <p>{profile.email}</p>
         <h2>Status</h2>
-        <ul> {/* //TODO */}
+        <ul>
+          {' '}
+          {/* //TODO */}
           <li>Films: {movies.length} movies available</li>
           <li>Watchlist: {watchlist.length} movies</li>
         </ul>
         {watchlist.length <= 1 && (
           <>
-            <img></img>
             <h3>Congratulations! You have won BuddyFilms Oscar.</h3>
+            <img></img>
           </>
         )}
         {watchlist.length > 1 && watchlist.length <= 5 && (
           <>
-            <img></img>
             <h3>Good job! You have won BuddyFilms Goya.</h3>
+            <img></img>
           </>
         )}
         {watchlist.length > 5 && (
           <>
-            <img></img>
             <h3>Ou! It seems you do not have time to watch the movies.</h3>
+            <img></img>
           </>
         )}
-        {/* <h3>Not in a mood for listed movies?</h3> */}
         <p>Cannot find what you are looking for?</p>
         <p>Ask your friend for a recomendation and add a New Film to BuddyFilms!</p>
       </div>

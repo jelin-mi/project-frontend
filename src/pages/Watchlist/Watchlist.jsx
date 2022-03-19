@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import apiService from '../../services/api.service';
-import Navbar from '../../components/Navbar/Navbar';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
 import { ReactComponent as Loading } from '../../assets/loading.svg';
 import { ReactComponent as Remove } from '../../assets/remove.svg';
 import { ReactComponent as WatchlistActive } from '../../assets/watchlistActive.svg';
+import apiService from '../../services/api.service';
+import Navbar from '../../components/Navbar/Navbar';
 import wheel from '../../assets/wheel.png';
 import Back from '../../components/Back';
 import './Watchlist.css';
@@ -42,7 +42,6 @@ function Watchlist() {
         console.log(err);
       });
   };
-  console.log(watchlist);
 
   if (isLoading)
     return (

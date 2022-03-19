@@ -170,3 +170,8 @@
   margin-top: 0;
   margin-bottom: 15px;
 }
+
+.help-text {
+  font-size: 12px;
+  margin-top: -8px;
+}

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
-import apiService from '../../services/api.service';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
+import Navbar from '../../components/Navbar/Navbar';
+import apiService from '../../services/api.service';
 import Back from '../../components/Back';
 import './Movies.css';
 
@@ -48,11 +48,9 @@ function MovieEdit() {
       .then(response => {
         console.log(response.data);
         setImageUrl(response.data.fileUrl);
-        console.log(response.data.fileUrl);
       })
       .catch(err => console.log(err));
   };
-  console.log('image', imageUrl);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -92,6 +90,7 @@ function MovieEdit() {
           <div className="label-input">
             <label>Image</label>
             <input type="file" name="imageUrl" onChange={handleFileUpload} />
+            <p className="help-text">Recommended dimensions: 384 x 500 px</p>
           </div>
           <div className="label-input">
             <label>Year</label>
