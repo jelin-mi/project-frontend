@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/auth.context';
-import { ReactComponent as Loading } from '../../assets/loading.svg';
 import { ReactComponent as Cover } from '../../assets/popcorn.svg';
+import Loading from '../../components/Loading/Loading';
 import './Home.css';
 
 function Home() {
@@ -32,19 +32,17 @@ function Home() {
               <button className="signup">
                 <Link to="/signup">Sign up </Link>
               </button>
-
               <button className="login">
                 <Link to="/login">Log in </Link>
               </button>
-
               <p>
-                Do you want to look around a bit before signing up? Check the <Link to={'/movies'}>movies</Link>.
+                Do you want to look around a bit before signing up? Check the <Link to={'/movies'}>films</Link>.
               </p>
             </>
           )}
           {isLoggedIn && (
             <p>
-              Hello buddy, check your <Link to={'/movies'}>movies</Link>.
+              Hello buddy, check your <Link to={'/movies'}>films</Link>.
             </p>
           )}
         </div>

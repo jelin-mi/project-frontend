@@ -9,6 +9,12 @@
   height: 100vh;
 }
 
+.container.home svg {
+  max-width: 124px;
+  width: 100%;
+  height: auto;
+}
+
 .container.home button {
   border-radius: 8px;
   border: none;

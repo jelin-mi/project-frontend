@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { ReactComponent as Loading } from '../../assets/loading.svg';
 import { ReactComponent as Logout } from '../../assets/logout.svg';
+import { ReactComponent as Glasses } from '../../assets/glasses.svg';
 import { AuthContext } from '../../context/auth.context';
+import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import apiService from '../../services/api.service';
 import Back from '../../components/Back';
+import Loading from '../../components/Loading/Loading';
 import './Profile.css';
 
 function Profile() {
@@ -71,35 +73,28 @@ function Profile() {
             <Logout onClick={logOutUser} />
           </div>
         </div>
-        <h2>Email</h2>
-        <p>{profile.email}</p>
-        <h2>Status</h2>
-        <ul>
-          {' '}
-          {/* //TODO */}
-          <li>Films: {movies.length} movies available</li>
-          <li>Watchlist: {watchlist.length} movies</li>
-        </ul>
-        {watchlist.length <= 1 && (
-          <>
-            <h3>Congratulations! You have won BuddyFilms Oscar.</h3>
-            <img></img>
-          </>
-        )}
-        {watchlist.length > 1 && watchlist.length <= 5 && (
-          <>
-            <h3>Good job! You have won BuddyFilms Goya.</h3>
-            <img></img>
-          </>
-        )}
-        {watchlist.length > 5 && (
-          <>
-            <h3>Ou! It seems you do not have time to watch the movies.</h3>
-            <img></img>
-          </>
-        )}
-        <p>Cannot find what you are looking for?</p>
-        <p>Ask your friend for a recomendation and add a New Film to BuddyFilms!</p>
+        <div className="email">
+          <h2>Email</h2>
+          <p>{profile.email}</p>
+        </div>
+        <div className="status">
+          <h2>Status</h2>
+          <ul>
+            <li>
+              <strong>Films:</strong> <Link to={'/movies'}>{movies.length} films</Link>
+            </li>
+            <li>
+              <strong>Watchlist:</strong> <Link to={'/watchlist'}>{watchlist.length} films</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="recommendation">
+          <Glasses />
+          <h3>
+            <strong>Cannot find what you are looking for?</strong>
+          </h3>
+          <p>Ask your friend for a recommendation and add a New Film to BuddyFilms!</p>
+        </div>
       </div>
       <Navbar />
     </>

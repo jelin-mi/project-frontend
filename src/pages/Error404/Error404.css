@@ -1,1 +1,45 @@
-/* //TODO */
+.bg-error {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/404.jpg');
+}
+
+.container.error {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  height: calc(100vh - 50px);
+}
+
+.container.error h1 {
+  font-size: 40px;
+  padding-left: 0;
+  padding-bottom: 10px;
+}
+
+.container.error p {
+  padding-bottom: 15px;
+}
+
+.container.error button {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'EuclidSquare-Medium';
+  background-color: var(--background);
+  border: 2px solid var(--background);
+}
+
+.container.error button a {
+  font-size: 16px;
+  font-family: 'EuclidSquare-Medium';
+  color: var(--active);
+}

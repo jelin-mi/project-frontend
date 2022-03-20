@@ -5,8 +5,8 @@
   --textDark: #333333;
   --textLight: #fff;
   --opacity: 0.8;
-  --success: green;
-  --error: red; /* //TODO What color to use? */
+  --success: #0f8000;
+  --error: #fc2831;
 }
 
 /* ----- Tipography ----- */
@@ -75,7 +75,7 @@ body {
 }
 
 .container {
-  padding: 35px 15px 100px;
+  padding: 35px 15px 115px;
   max-width: 375px;
   margin: 0 auto;
   position: relative;
@@ -124,30 +124,23 @@ p a {
   padding-bottom: 2em;
 }
 
-/* .loading {
-  background-color: var(--background);
-} */
+.box-message {
+  background-color: var(--backgroundLight);
+  width: 100%;
+  max-width: 100%;
+  position: fixed;
+  bottom: 88px;
+  padding: 10px 20px;
+}
 
 .info-message {
   color: var(--success);
+  font-size: 15px;
+  font-family: 'EuclidSquare-Medium';
 }
 
 .error-message {
   color: var(--error);
-}
-
-button {
-  margin-top: 1em;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--background);
-  color: var(--active);
-  padding: 10px 25px;
-}
-
-button a {
-  color: var(--active);
-  font-size: 14px;
-  font-family: 'EuclidSquare-Light';
-  text-decoration: none;
+  font-size: 15px;
+  font-family: 'EuclidSquare-Medium';
 }

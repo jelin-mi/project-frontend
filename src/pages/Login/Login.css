@@ -31,9 +31,11 @@
   font-family: 'EuclidSquare-Light';
   background-color: transparent;
   border-bottom: 1.5px solid var(--background);
+  border-radius: 0;
 }
+
 .container.login input:focus {
-  background-color: #eee;
+  background-color: var(--backgroundLight);
   border-radius: 5px;
   border-bottom: 0;
 }

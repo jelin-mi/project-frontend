@@ -29,6 +29,7 @@ function MovieEdit() {
       setImageUrl(response.data.fileUrl);
       setRating(response.data.rating);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleOnChange = e => {
@@ -116,8 +117,7 @@ function MovieEdit() {
             <label>Synopsis</label>
             <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
-
-          <div className="label-input">
+          <div className="label-input rating">
             <label>Rating</label>
             {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
             {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}
@@ -125,7 +125,6 @@ function MovieEdit() {
             {rating > 3 ? <StarActive onClick={() => setRating(3)} /> : <Star onClick={() => setRating(4)} />}
             {rating > 4 ? <StarActive onClick={() => setRating(4)} /> : <Star onClick={() => setRating(5)} />}
           </div>
-
           <button type="submit">Save</button>
         </form>
       </div>
