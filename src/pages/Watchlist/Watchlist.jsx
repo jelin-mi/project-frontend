@@ -116,7 +116,7 @@ function Watchlist() {
                     </>
                   )}
                 </div>
-                <div onClick={() => handleOnClick(watchlist._id)}>
+                <div className='remove' onClick={() => handleOnClick(watchlist._id)}>
                   <Remove />
                 </div>
               </div>
