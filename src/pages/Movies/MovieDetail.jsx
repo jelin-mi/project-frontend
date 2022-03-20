@@ -5,10 +5,10 @@ import { AuthContext } from '../../context/auth.context';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../assets/watchlistAdd.svg';
-import { ReactComponent as Loading } from '../../assets/loading.svg';
 import apiService from '../../services/api.service';
 import Navbar from '../../components/Navbar/Navbar';
 import Back from '../../components/Back';
+import Loading from '../../components/Loading/Loading';
 import imageDefault from '../../assets/noImg.jpeg';
 import './Movies.css';
 
@@ -30,6 +30,7 @@ function MovieDetail() {
       .catch(err => {
         console.log(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Add to my Watchlist
@@ -99,7 +100,6 @@ function MovieDetail() {
               {movie.imageUrl ? <img src={movie.imageUrl} alt="pic" /> : <img src={imageDefault} alt="" />}
             </div>
           </div>
-
           <div className="content">
             <p>
               <span>Year:</span> {movie.year}
@@ -119,7 +119,6 @@ function MovieDetail() {
             <p>
               <span>Buddy:</span> {movie.buddy}
             </p>
-
             {movie.owner === user._id && (
               <button>
                 <Link to={`/movies/${movie._id}/edit`}>Edit film</Link>{' '}

@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
 import { ReactComponent as WatchlistIcon } from '../../assets/watchlistAdd.svg';
-import { ReactComponent as Loading } from '../../assets/loading.svg';
+import { AuthContext } from '../../context/auth.context';
 import apiService from '../../services/api.service';
 import Navbar from '../../components/Navbar/Navbar';
 import Search from '../../components/Search/Search';
 import Back from '../../components/Back';
+import Loading from '../../components/Loading/Loading';
 import './Movies.css';
 
 function MoviesList() {
@@ -16,6 +17,7 @@ function MoviesList() {
   const [errorMessage, setErrorMessage] = useState();
   const [phrase, setPhrase] = useState();
   const [query, setQuery] = useState('');
+  const { user } = useContext(AuthContext);
 
   // List of all movies
   useEffect(() => {
@@ -49,8 +51,8 @@ function MoviesList() {
   };
 
   // Search
-   const onFilter = searchTerm => {
-     setQuery(searchTerm)
+  const onFilter = searchTerm => {
+    setQuery(searchTerm);
   };
 
   const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
@@ -70,7 +72,6 @@ function MoviesList() {
           <h1>BuddyFilms list</h1>
         </div>
         <Search onFilter={onFilter} />
-
         {filteredMovies.map(movie => {
           return (
             <div className="item-movie" key={movie._id}>
@@ -108,16 +109,26 @@ function MoviesList() {
                     </>
                   )}
                 </div>
-                <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
-                  <WatchlistIcon />
-                </div>
+                {user && (
+                  <div className="watchlist-icon" onClick={() => handleOnClick(movie._id)}>
+                    <WatchlistIcon />
+                  </div>
+                )}
               </div>
             </div>
           );
         })}
-        <p className="error-message">{errorMessage}</p>
-        <p className="info-message">{phrase}</p>
       </div>
+      {errorMessage && (
+        <div className="box-message">
+          <p className="error-message">{errorMessage}</p>
+        </div>
+      )}
+      {phrase && (
+        <div className="box-message">
+          <p className="info-message">{phrase}</p>
+        </div>
+      )}
       <Navbar />
     </>
   );

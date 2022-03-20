@@ -36,7 +36,6 @@ function Login() {
         <br />
         please log in into your account.
       </p>
-
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
@@ -46,7 +45,6 @@ function Login() {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Login</button>
       </form>
-
       <p className="text">
         Don’t have an account yet?
         <br />

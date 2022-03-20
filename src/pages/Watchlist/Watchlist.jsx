@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Star } from '../../assets/star.svg';
 import { ReactComponent as StarActive } from '../../assets/starActive.svg';
-import { ReactComponent as Loading } from '../../assets/loading.svg';
 import { ReactComponent as Remove } from '../../assets/remove.svg';
+import { ReactComponent as RemoveIcon } from '../../assets/removeActive.svg';
 import { ReactComponent as WatchlistActive } from '../../assets/watchlistActive.svg';
+import { ReactComponent as Wheel } from '../../assets/wheel.svg';
 import apiService from '../../services/api.service';
 import Navbar from '../../components/Navbar/Navbar';
-import wheel from '../../assets/wheel.png';
 import Back from '../../components/Back';
+import Loading from '../../components/Loading/Loading';
 import './Watchlist.css';
 
 function Watchlist() {
@@ -60,9 +61,8 @@ function Watchlist() {
         {watchlist.length === 0 && (
           <>
             <p className="any-movies">
-              <strong>
-                You do not have any movies in your<br></br>Watchlist yet
-              </strong>.</p>
+              <strong>You don’t have any films in your Watchlist</strong>.
+            </p>
             <p className="any-movies">
               Go to the{' '}
               <Link to={'/movies'}>
@@ -70,13 +70,16 @@ function Watchlist() {
               </Link>{' '}
               page and add some by clicking at <WatchlistActive /> icon.
             </p>
+            <p className="any-movies">
+              Once you have some films in your Watchlist, you can easily remove them by clicking <br /> at{' '}
+              <RemoveIcon /> icon if you want.
+            </p>
             <div className="icon-wheel">
-              <img src={wheel} alt="wheel" />
+              <Wheel />
             </div>
           </>
         )}
         {watchlist.map(watchlist => {
-          console.log('wathclist', watchlist);
           return (
             <div className="item-movie" key={watchlist._id}>
               <Link to={`/movies/${watchlist.movie._id}`}>
@@ -113,7 +116,6 @@ function Watchlist() {
                     </>
                   )}
                 </div>
-
                 <div onClick={() => handleOnClick(watchlist._id)}>
                   <Remove />
                 </div>

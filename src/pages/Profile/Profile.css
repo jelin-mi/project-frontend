@@ -1,3 +1,51 @@
+.container.profile {
+  padding: 35px 20px 100px;
+}
+
+.container.profile h2 {
+  padding-bottom: 8px;
+  color: var(--background);
+  font-family: EuclidSquare-SemiBold;
+}
+
+.container.profile .email,
+.container.profile .status {
+  padding-bottom: 1em;
+}
+
+.container.profile ul {
+  list-style: initial;
+  padding-left: 15px;
+}
+
+.container.profile li {
+  padding-bottom: 8px;
+}
+
+.container.profile li a {
+  font-family: 'EuclidSquare-SemiBold';
+  color: var(--textDark);
+}
+
+.container.profile li strong {
+  font-family: 'EuclidSquare-Medium';
+  color: var(--textDark);
+}
+
+.container.profile .recommendation {
+  padding-top: 1em;
+  text-align: center;
+}
+.container.profile .recommendation h3 {
+  font-family: EuclidSquare-SemiBold;
+  padding-bottom: 10px;
+  font-size: 17px;
+}
+
+.container.profile .recommendation svg {
+  padding-bottom: 25px;
+}
+
 .logout-icon {
   position: absolute;
   right: 15px;

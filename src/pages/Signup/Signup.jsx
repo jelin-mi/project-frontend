@@ -38,13 +38,11 @@ function Signup() {
       <form onSubmit={handleSignupSubmit}>
         <label>Email address</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
         <label>Password</label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Sign Up</button>
       </form>
-
       <p className="text">
         Already have account?
         <br />

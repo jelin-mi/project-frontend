@@ -21,10 +21,13 @@
 }
 
 .item-movie .stars {
-  margin-right: 16px;
   width: 125px;
   display: flex;
   justify-content: space-between;
+}
+
+.item-movie .watchlist-icon {
+  margin-left: 16px;
 }
 
 .item-movie a {
@@ -135,6 +138,7 @@
   font-size: 13px;
   color: var (--textDark);
   font-family: 'EuclidSquare-Light';
+  border-radius: 0;
 }
 
 .newfilm textarea {
@@ -146,6 +150,7 @@
 .newfilm textarea:focus {
   background-color: var(--backgroundLight);
   border-radius: 5px;
+  border-bottom: 0;
 }
 
 .editfilm input,
@@ -174,4 +179,26 @@
 .help-text {
   font-size: 12px;
   margin-top: -8px;
+}
+
+.rating svg {
+  padding-right: 3px;
+}
+
+button {
+  margin-top: 1em;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--background);
+  color: var(--active);
+  padding: 10px 25px;
+  font-size: 16px;
+  font-family: 'EuclidSquare-Regular';
+}
+
+button a {
+  color: var(--active);
+  font-size: 16px;
+  font-family: 'EuclidSquare-Regular';
+  text-decoration: none;
 }

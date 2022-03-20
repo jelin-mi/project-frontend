@@ -108,8 +108,7 @@ function MovieCreate() {
             <label>Synopsis</label>
             <textarea type="text" name="synopsis" value={movie.synopsis} onChange={handleOnChange} />
           </div>
-
-          <div className="label-input">
+          <div className="label-input rating">
             <label>Rating</label>
             {rating > 0 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(1)} />}
             {rating > 1 ? <StarActive onClick={() => setRating(1)} /> : <Star onClick={() => setRating(2)} />}

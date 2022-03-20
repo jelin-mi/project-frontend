@@ -9,7 +9,7 @@
   background-image: url('/src/assets/search.svg');
   background-size: 20px;
   background-repeat: no-repeat;
-  background-position: 15px 15px; 
+  background-position: 15px 15px;
   border: none;
   padding: 15px 0 15px 45px;
   width: calc(100% - 45px);
