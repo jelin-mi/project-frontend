@@ -118,8 +118,12 @@ function MovieCreate() {
           </div>
           <button type="submit">Add</button>
         </form>
-        <p className="error-message">{errorMessage}</p>
       </div>
+      {errorMessage && (
+        <div className="box-message">
+          <p className="error-message">{errorMessage}</p>
+        </div>
+      )}
       <Navbar />
     </>
   );

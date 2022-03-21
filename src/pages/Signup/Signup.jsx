@@ -30,7 +30,7 @@ function Signup() {
 
   return (
     <div className="container signup">
-      <h1>Welcome to Buddy Films</h1>
+      <h1>Welcome to BuddyFilms</h1>
       <p>
         Hey movie lover!
         <br />I guess you are new around here. Please create your account to get the most from this app.

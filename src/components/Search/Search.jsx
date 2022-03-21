@@ -7,7 +7,7 @@ function Search({ onFilter }) {
 
   return (
     <div className="search">
-      <input type="text" placeholder="Search a movie..." onChange={handleSearch} />
+      <input type="text" placeholder="Search a film..." onChange={handleSearch} />
     </div>
   );
 }
