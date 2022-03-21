@@ -51,3 +51,4 @@ npm run build
 - [Slides](https://slides.com/michaelajelinkova/buddy-films/fullscreen)
 - [Backend repository](https://github.com/jelin-mi/project-backend)
 - [Deployed version](https://buddy-films.netlify.app)
+- [Instructions](https://slides.com/michaelajelinkova/buddy-films-instructions/fullscreen)

@@ -81,7 +81,7 @@ function MovieEdit() {
       <div className="container editfilm">
         <div className="headline">
           <Back />
-          <h1>Movie edit</h1>
+          <h1>Edit film</h1>
         </div>
         <form onSubmit={handleSubmit} className="form">
           <div className="label-input">
